@@ -98,3 +98,11 @@ Por último, el archivo se vincula al final del documento. Esto garantiza que la
 
 
 PARTE C: EVIDENCIAS Y CAPTURAS
+
+![la captura a muestra una imagen del main de la página web con mi nombre visible en el navbar](Capturas/Captura_a.png)
+![la captura b muestra como se mostraría la pantalla del menú de interacción en dispositivo móvil](Capturas/Captura_b.png) 
+![la captura c muestra la consola con los trazos de los tres botones](Capturas/Captura_c.png) 
+![la captura d1 muestra el alert del boton que navegador soy del navegador Firefox](Capturas/Captura_d1.png)
+![la captura d2 muestra el alert del boton que navegador soy del navegador Chrome](Capturas/Captura_d2.png)
+![la captura e muestra la ventana del VisualStudio Code junto al puerto 5500 de liverserver y la carpeta del tema02](Capturas/Captura_e.png)    
+
