@@ -4,7 +4,12 @@ function saludarUsuario() {
     alert("Hola, soy Javier Barreda Zurera y esta es la práctica de Desarrollo Web en Entorno Cliente.");
 }
 
-// Función 2: Escribe un mensaje de error en rojo en la consola del navegador.
+// Función 2: Escribe un mensaje de error en la consola del navegador.
 function simularError() {
-    console.error("ERROR:Estee mensaje muestra un error de la consola del navegador.");
+    alert("Error: Este es un mensaje de error simulado.");
+}
+
+function verNavegador() {
+    // Función 3: Muestra el nombre del navegador en un (alert).
+    alert("Estás utilizando el navegador: " + navigator.appName);
 }
