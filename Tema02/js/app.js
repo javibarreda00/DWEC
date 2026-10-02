@@ -5,3 +5,6 @@ function saludarUsuario() {
 }
 
 // Función 2: Escribe un mensaje de error en rojo en la consola del navegador.
+function simularError() {
+    console.error("ERROR:Estee mensaje muestra un error de la consola del navegador.");
+}
