@@ -2,6 +2,7 @@
 
 function saludarUsuario() {
     alert("Hola, soy Javier Barreda Zurera y esta es la práctica de Desarrollo Web en Entorno Cliente.");
+    console.log("Hola, soy Javier Barreda Zurera y esta es la práctica de Desarrollo Web en Entorno Cliente.");
 }
 
 // Función 2: Escribe un mensaje de error en la consola del navegador.
