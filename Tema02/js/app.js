@@ -11,5 +11,5 @@ function simularError() {
 
 function verNavegador() {
     // Función 3: Muestra el nombre del navegador en un (alert).
-    alert("Estás utilizando el navegador: " + navigator.appName);
+    alert("Estás utilizando el navegador: " + navigator.userAgent);
 }
