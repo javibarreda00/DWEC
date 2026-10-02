@@ -106,3 +106,36 @@ PARTE C: EVIDENCIAS Y CAPTURAS
 ![la captura d2 muestra el alert del boton que navegador soy del navegador Chrome](Capturas/Captura_d2.png)
 ![la captura e muestra la ventana del VisualStudio Code junto al puerto 5500 de liverserver y la carpeta del tema02](Capturas/Captura_e.png)    
 
+2. «Quién hace qué» en un botón
+Tomando como ejemplo el Botón 1 ("1. Saludar") de la página de interacción:
+
+HTML: Es el encargado de la estructura y el esqueleto de la página. Define el elemento interactivo mediante la etiqueta del botón (<button>) y le asigna el evento de escucha nativo (onclick="saludarUsuario()"), además de estructurar la tarjeta (card) que lo contiene.
+
+Bootstrap (CSS): Aporta la capa visual y el diseño estético. Gracias a clases como btn btn-primary, transforma un botón plano del navegador en un elemento moderno con colores corporativos (azul), bordes redondeados, tipografía cuidada y efectos visuales (hover) al pasar el cursor por encima, todo ello adaptado para verse bien en cualquier dispositivo sin necesidad de escribir hojas de estilos propias.
+
+JavaScript: Proporciona la lógica de comportamiento y la interactividad. A través de la función saludarUsuario() alojada en el archivo externo app.js, ejecuta la orden de interrumpir el flujo y lanzar una ventana emergente nativa con la instrucción alert(), respondiendo en tiempo real a la acción del usuario.
+
+3. Comparativa de los User-Agent obtenidos
+Al probar la aplicación en diferentes navegadores, se obtienen cadenas de identificación (userAgent) características como las siguientes:
+
+En Google Chrome:
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36
+
+En Mozilla Firefox:
+Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:135.0) Gecko/20100101 Firefox/135.0
+
+¿Qué partes se reconocen y por qué aparecen palabras como Mozilla, AppleWebKit o Safari aunque el navegador sea otro?
+Mozilla/5.0: Aparece al principio de prácticamente todos los navegadores modernos por motivos históricos de compatibilidad web. Antiguamente, los servidores web bloqueaban a los navegadores que no reconocían; para evitarlo, Netscape (y posteriormente todos los demás) empezaron a autodenominarse "compatibles con Mozilla".
+
+AppleWebKit y Safari en Google Chrome: Aparecen porque el motor inicial de Google Chrome (Blink) nació como una bifurcación (fork) de WebKit (el motor de Apple). Para asegurar que las páginas diseñadas para WebKit/Safari funcionasen correctamente en Chrome sin ser rechazadas, este navegador heredó esas cadenas en su firma digital.
+
+Versiones y Sistemas Operativos (Windows NT 10.0; Win64; x64): Indican claramente la plataforma subyacente del usuario (en este caso, Windows de 64 bits), lo cual permite a los servidores conocer el sistema operativo del cliente.
+
+4. Fuentes Consultadas y Uso de IA
+Documentación oficial de Bootstrap: Guía de componentes, tablas, tarjetas y barras de navegación. Disponible en: https://getbootstrap.com/
+
+Can I use: Herramienta de compatibilidad y soporte de tecnologías web. Disponible en: https://caniuse.com/
+
+MDN Web Docs (Mozilla Developer Network): Referencia oficial sobre el objeto navigator.userAgent y la consola de JavaScript. Disponible en: https://developer.mozilla.org/
+
+Apartado «Uso de IA»: Se ha empleado asistencia de inteligencia artificial de forma guiada para estructurar el diseño de las páginas mediante componentes de Bootstrap, resolver incidencias técnicas de configuración del entorno de desarrollo (como la depuración de rutas en Live Server) y redactar y organizar las explicaciones teóricas y técnicas de este proyecto
