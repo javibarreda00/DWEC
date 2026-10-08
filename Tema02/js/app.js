@@ -15,3 +15,7 @@ function verNavegador() {
     console.log("Estás utilizando el navegador: " + navigator.userAgent);
     alert("Estás utilizando el navegador: " + navigator.userAgent);
 }
+
+function Despedida(){
+ console.warn("Esto es un mensaje de despedida, adios mundo");
+}
