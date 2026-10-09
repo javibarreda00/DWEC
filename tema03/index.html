@@ -23,7 +23,7 @@
   <!-- NAVBAR con tu nombre -->
   <nav class="navbar bg-primary" data-bs-theme="dark">
     <div class="container">
-      <span class="navbar-brand"><i class="bi bi-person-circle"></i> [Javier Barreda Zurera]</span>
+      <span class="navbar-brand"><i class="bi bi-person-circle"></i> Javier Barreda Zurera</span>
       <span class="navbar-text">Tarea 3 · DWEC</span>
     </div>
   </nav>
@@ -71,9 +71,17 @@
   const estudiante = true; //booleano
   console.log("estudiante =", estudiante,"→", typeof estudiante );
 
+  const sorpresa= null; //valor null
+  console.log("sorpresa =", sorpresa, "→", typeof sorpresa );
 
+  const numeroEnorme= 20n; //valor bigint
+  console.log("numeroEnorme =", numeroEnorme, "→", typeof numeroEnorme );
 
-  [aquí va el resto de tu código]
+  let asignaturasAprobadas //undefined con let para darle valor más tarde
+  console.log("asignaturasAprobadas =", asignaturasAprobadas, "→", typeof asignaturasAprobadas);
+
+  asignaturasAprobadas= 8; //declaro el valor de la variable aquí
+  console.log("asignaturasAprobadas =", asignaturasAprobadas, "→", typeof asignaturasAprobadas);
 }</code></pre>
 
         <!-- 3) La tabla «Espero / Sale», rellenada a mano.
@@ -88,13 +96,20 @@
               <tr><th scope="row">edad</th><td><code>20</code></td><td><code>number</code></td><td><code>number</code></td></tr>
               <tr><th scope="row">nombre</th><td><code>Javi</code></td><td><code>String</code></td><td><code>String</code></td></tr>
               <tr><th scope="row">estudiante</th><td><code>true</code></td><td><code>boolean</code></td><td><code>boolean</code></td></tr>
+              <tr><th scope="row">sorpresa</th><td><code>null</code></td><td><code>object</code></td><td><code>object</code></td></tr>
+              <tr><th scope="row">numeroEnorme</th><td><code>20n</code></td><td><code>bigint</code></td><td><code>bigint</code></td></tr>
+              <tr><th scope="row">asignaturasAprobadas (sin definir)</th><td><code>undefined</code></td><td><code>undefined</code></td><td><code>undefined</code></td></tr>
+              <tr><th scope="row">asignaturasAprobadas</th><td><code>8</code></td><td><code>number</code></td><td><code>number</code></td></tr>
+
+
+
 
             </tbody>
           </table>
         </div>
 
         <!-- 4) Tu explicación -->
-        <p class="small mb-0"><strong>El caso de null:</strong> [explica en una línea qué pasa con typeof null]</p>
+        <p class="small mb-0"><strong>El caso de null:</strong> typeof null lanza object por defecto por un error de javascript</p>
       </div>
 
       <!-- 5) El botón. onclick="ejercicio1()" hace que, al pulsarlo, se ejecute la función ejercicio1() de js/app.js.

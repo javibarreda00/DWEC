@@ -20,11 +20,24 @@ function ejercicio1() {
   const edad = 20;   // number
   console.log("edad =", edad, "→", typeof edad);
 
-  const nombre= Javi; //string
+  const nombre= "Javi"; //string
   console.log("nombre=", nombre, "→", typeof nombre );
 
   const estudiante= true; //boolean
   console.log("estudiante =", estudiante, "→", typeof estudiante);
+
+   const sorpresa= null; //valor null
+  console.log("sorpresa =", sorpresa, "→", typeof sorpresa );
+
+   const numeroEnorme= 20n; //valor bigint
+  console.log("numeroEnorme =", numeroEnorme, "→", typeof numeroEnorme );
+
+  let asignaturasAprobadas //undefined con let para darle valor más tarde
+  console.log("asignaturasAprobadas =", asignaturasAprobadas, "→", typeof asignaturasAprobadas);
+
+  asignaturasAprobadas= 8; //declaro el valor de la variable aquí
+  console.log("asignaturasAprobadas =", asignaturasAprobadas, "→", typeof asignaturasAprobadas);
+
 
   // TODO: declara una variable de cada tipo que falta: string, boolean, null, undefined y bigint (como 10n).
   //       const si no va a cambiar; let para al menos una a la que des valor más tarde.
