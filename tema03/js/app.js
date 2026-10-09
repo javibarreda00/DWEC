@@ -85,3 +85,23 @@ function ejercicio3() {
   console.log("null === undefined →", null === undefined); // Espero false
 }
 
+function ejercicio4() {
+  console.log("--- Ejercicio 4 · Mi Ficha con Plantillas de Cadena ---");
+
+  const nombre = "Javier";
+  const apellidos = "Barreda";
+  const ciclo = "Desarrollo de Aplicaciones Web";
+  const curso = "2º";
+  const aficion = "Videojuegos";
+
+  let horasEstudiadas = 3;
+  horasEstudiadas += 3;
+
+  const ficha = `Mi nombre es ${nombre} ${apellidos}, estudio ${ciclo}, en el curso ${curso} y mi afición son los ${aficion}. Esta semana he estudiado ${horasEstudiadas} horas.`;
+  alert(ficha);
+  console.log(ficha);
+
+  const fichaConMas = "Mi nombre es " + nombre + " " + apellidos + ", estudio " + ciclo + ", en el curso " + curso + " y mi afición son los " + aficion + ". Esta semana he estudiado " + horasEstudiadas + " horas.";
+  console.log("Ficha concatenada:", fichaConMas);
+  console.log("Son iguales las dos fichas →", ficha === fichaConMas);
+}
