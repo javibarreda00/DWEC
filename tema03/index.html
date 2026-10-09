@@ -224,7 +224,7 @@
       <!-- 1) Título del ejercicio -->
       <div class="card-header d-flex align-items-center gap-2">
         <span class="badge text-bg-primary">Ejercicio 3</span>
-        <h2 class="h5 mb-0">Correción y comparaciones</h2>
+        <h2 class="h5 mb-0">Coerción y comparaciones</h2>
       </div>
 
       <div class="card-body">
@@ -232,37 +232,33 @@
         <!-- 2) El código: cuando termines, copia aquí tu función ejercicio1() de js/app.js.
                 Si tu código lleva los signos < o >, escríbelos como &lt; y &gt; -->
         <pre class="bg-dark text-light p-3 rounded small mb-4"><code>function ejercicio2() {
-  console.log("--- Ejercicio 3 · Correción y comparaciones ---");
-
-  const a = String(123); //convertir 123 en un string
-  console.log(String"(123) →", a, typeof a);
-
-  const b = Number("123"); // pasar de String a número
-  console.log(Numer("123) →", b, typeof b);
-
-  const c = Number("12abc"); //no es un número valido, asi que sale NaN
-  console.log('Number("12abc") →', c, typeof c);
-
-  const d = Number(""); //un valor vacío que da 0
-  console.log('Number("") →', d, typeof d);
-
-  const e = Number(true); //el true se convierte en 1
-  console.log("Number(true) →", e, typeof e);
+  console.log("--- Ejercicio 3 · Coerción y comparaciones ---");
 
   
-  const f = Boolean(0); // El  0 se convierte en false
-  console.log("Boolean(0) →", f, typeof f);
+  console.log('"5" - 2 →', "5" - 2);   // El texto se convierte en número
+  console.log('"5" + 2 →', "5" + 2);   // El número se junta con el texto
+  console.log("true + 1 →", true + 1);   // true equivale a 1
+  console.log('"1" + 3 + 5 →', "1" + 3 + 5);   // Se van juntando como texto
+  console.log('2 + 6 + "5" →', 2 + 6 + "5");   // Primero suma y después junta
+  console.log('"chao" - 1 →', "chao" - 1);   // No puede restar y devuelve NaN
+  
+  
+  console.log('5 == "5" →', 5 == "5");     // Devuelve true. el == solo compara el valor
+
+
+  console.log('5 === "5" →', 5 === "5");   // Devuelve false. el === compara tanto el valor como el tipo 
 
   
-  const g = Boolean("texto"); //El texto se convierte en true
-  console.log('Boolean("texto") →', g, typeof g);
+  console.log("0 == false →", 0 == false); // son iguales porque solo comparan el valor
 
   
-  const h = Boolean("");//Una cadena vacía se convierte en false
-  console.log('Boolean("") →', h, typeof h);
+  console.log("0 === false →", 0 === false); // son distintos porque sus tipos son diferentes
+
   
-  asignaturasAprobadas= 8; //declaro el valor de la variable aquí
-  console.log("asignaturasAprobadas =", asignaturasAprobadas, "→", typeof asignaturasAprobadas);
+  console.log("null == undefined →", null == undefined); //son iguales porque solo comparan valor
+
+  
+  console.log("null === undefined →", null === undefined); // son distintos porque sus tipos son diferentes
 }</code></pre>
 
         <!-- 3) La tabla «Espero / Sale», rellenada a mano.
@@ -298,7 +294,7 @@
               Cómo funciona lo veremos más adelante, con los eventos. De momento, cópialo tal cual y cambia solo el número. -->
       <div class="card-footer">
         <button type="button" class="btn btn-primary" onclick="ejercicio2()">
-          <i class="bi bi-play-fill"></i> Ejecutar ejercicio 2
+          <i class="bi bi-play-fill"></i> Ejecutar ejercicio 3
         </button>
         <span class="small text-body-secondary ms-2">El resultado sale en la consola (F12).</span>
       </div>
