@@ -63,6 +63,35 @@ const a = String(123); //Espero que salga "123"
 
   const h = Boolean("");//Espero que salga false
   console.log('Boolean("") →', h, typeof h);
+
+
+  // Ejercicio 3 . Coerción y  comparaciones
+
+  function ejercicio3() {
+  console.log("--- Ejercicio 3 · Coerción y comparaciones ---");
+
+  // Expresiones que mezclan tipos
+  console.log('"5" - 2 →', "5" - 2);   // espero 3
+  console.log('"5" + 2 →', "5" + 2);   // espero "52"
+  console.log("true + 1 →", true + 1);   // espero 2
+  console.log('"1" + 3 + 5 →', "1" + 3 + 5);   // espero "345", mía
+  console.log('2 + 6 + "5" →', 2 + 6 + "5");   // espero "93", mía
+  console.log('"chao" - 1 →', "chao" - 1);   // espero NaN
+
+  // Comparaciones con == y con ===
+  console.log('5 == "5" →', 5 == "5");     // espero true
+  console.log('5 === "5" →', 5 === "5");   // espero false
+
+  console.log("0 == false →", 0 == false);     // espero true
+  console.log("0 === false →", 0 === false);   // espero false
+
+  console.log("null == undefined →", null == undefined);     // espero true
+  console.log("null === undefined →", null === undefined);   // espero false
+}
+
+
+
+
   
 
 
