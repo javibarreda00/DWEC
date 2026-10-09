@@ -134,6 +134,178 @@
                Ejercicio 4 → tu ficha, y el error de la const dentro de un <div class="alert alert-danger">
            · el botón: onclick="ejercicio2()", onclick="ejercicio3()"…
          ============================================================ -->
+         <section class="card mb-4 shadow-sm">
+
+      <!-- 1) Título del ejercicio -->
+      <div class="card-header d-flex align-items-center gap-2">
+        <span class="badge text-bg-primary">Ejercicio 2</span>
+        <h2 class="h5 mb-0">Conversiones explícitas</h2>
+      </div>
+
+      <div class="card-body">
+
+        <!-- 2) El código: cuando termines, copia aquí tu función ejercicio1() de js/app.js.
+                Si tu código lleva los signos < o >, escríbelos como &lt; y &gt; -->
+        <pre class="bg-dark text-light p-3 rounded small mb-4"><code>function ejercicio2() {
+  console.log("--- Ejercicio 2 · Conversiones explícitas ---");
+
+  const a = String(123); //convertir 123 en un string
+  console.log(String"(123) →", a, typeof a);
+
+  const b = Number("123"); // pasar de String a número
+  console.log(Numer("123) →", b, typeof b);
+
+  const c = Number("12abc"); //no es un número valido, asi que sale NaN
+  console.log('Number("12abc") →', c, typeof c);
+
+  const d = Number(""); //un valor vacío que da 0
+  console.log('Number("") →', d, typeof d);
+
+  const e = Number(true); //el true se convierte en 1
+  console.log("Number(true) →", e, typeof e);
+
+  
+  const f = Boolean(0); // El  0 se convierte en false
+  console.log("Boolean(0) →", f, typeof f);
+
+  
+  const g = Boolean("texto"); //El texto se convierte en true
+  console.log('Boolean("texto") →', g, typeof g);
+
+  
+  const h = Boolean("");//Una cadena vacía se convierte en false
+  console.log('Boolean("") →', h, typeof h);
+  
+  asignaturasAprobadas= 8; //declaro el valor de la variable aquí
+  console.log("asignaturasAprobadas =", asignaturasAprobadas, "→", typeof asignaturasAprobadas);
+}</code></pre>
+
+        <!-- 3) La tabla «Espero / Sale», rellenada a mano.
+                Una fila por variable. Si te equivocas, añade en la columna «Sale» el badge:
+                <span class="badge text-bg-danger">Fallé</span> -->
+        <div class="table-responsive">
+          <table class="table table-sm table-striped align-middle mb-2">
+            <thead class="table-primary">
+              <tr><th scope="col">Conversión</th><th scope="col">Espero</th><th scope="col">Sale</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">String(123)</th><td><code>"123"</code></td><td><code>"123"</code></td></tr>
+              <tr><th scope="row">Number("123")</th><td><code>123</code></td><td><code>123</code></td></tr>
+              <tr><th scope="row">Number("12abc")</th><td><code>NaN</code></td><td><code>NaN</code></td>></tr>
+              <tr><th scope="row">Number("")</th><td><code>0</code></td><td><code>0</code></td></tr>
+              <tr><th scope="row">Number(true)</th><td><code>1</code></td><td><code>1</code></td></tr>
+              <tr><th scope="row">Boolean(0)</th><td><code>0</code></td><td><code>0</code></td></tr>
+              <tr><th scope="row">Boolean("texto")</th><td><code>true</code></td><td><code>true</code></td></tr>
+              <tr><th scope="row">Boolean("")</th><td><code>false</code></td><td><code>true <span class="badge text-bg-danger">Fallé</span></code></td></tr>
+
+
+
+
+            </tbody>
+          </table>
+        </div>
+
+        <!-- 4) Tu explicación -->
+        <p class="small mb-0"><strong>En cuanto a las conversiones:</strong> Parece que ha salido lo que esperaba</p>
+      </div>
+
+      <!-- 5) El botón. onclick="ejercicio1()" hace que, al pulsarlo, se ejecute la función ejercicio1() de js/app.js.
+              Cómo funciona lo veremos más adelante, con los eventos. De momento, cópialo tal cual y cambia solo el número. -->
+      <div class="card-footer">
+        <button type="button" class="btn btn-primary" onclick="ejercicio2()">
+          <i class="bi bi-play-fill"></i> Ejecutar ejercicio 2
+        </button>
+        <span class="small text-body-secondary ms-2">El resultado sale en la consola (F12).</span>
+      </div>
+    </section>
+
+    <section class="card mb-4 shadow-sm">
+
+      <!-- 1) Título del ejercicio -->
+      <div class="card-header d-flex align-items-center gap-2">
+        <span class="badge text-bg-primary">Ejercicio 3</span>
+        <h2 class="h5 mb-0">Correción y comparaciones</h2>
+      </div>
+
+      <div class="card-body">
+
+        <!-- 2) El código: cuando termines, copia aquí tu función ejercicio1() de js/app.js.
+                Si tu código lleva los signos < o >, escríbelos como &lt; y &gt; -->
+        <pre class="bg-dark text-light p-3 rounded small mb-4"><code>function ejercicio2() {
+  console.log("--- Ejercicio 3 · Correción y comparaciones ---");
+
+  const a = String(123); //convertir 123 en un string
+  console.log(String"(123) →", a, typeof a);
+
+  const b = Number("123"); // pasar de String a número
+  console.log(Numer("123) →", b, typeof b);
+
+  const c = Number("12abc"); //no es un número valido, asi que sale NaN
+  console.log('Number("12abc") →', c, typeof c);
+
+  const d = Number(""); //un valor vacío que da 0
+  console.log('Number("") →', d, typeof d);
+
+  const e = Number(true); //el true se convierte en 1
+  console.log("Number(true) →", e, typeof e);
+
+  
+  const f = Boolean(0); // El  0 se convierte en false
+  console.log("Boolean(0) →", f, typeof f);
+
+  
+  const g = Boolean("texto"); //El texto se convierte en true
+  console.log('Boolean("texto") →', g, typeof g);
+
+  
+  const h = Boolean("");//Una cadena vacía se convierte en false
+  console.log('Boolean("") →', h, typeof h);
+  
+  asignaturasAprobadas= 8; //declaro el valor de la variable aquí
+  console.log("asignaturasAprobadas =", asignaturasAprobadas, "→", typeof asignaturasAprobadas);
+}</code></pre>
+
+        <!-- 3) La tabla «Espero / Sale», rellenada a mano.
+                Una fila por variable. Si te equivocas, añade en la columna «Sale» el badge:
+                <span class="badge text-bg-danger">Fallé</span> -->
+        <div class="table-responsive">
+          <table class="table table-sm table-striped align-middle mb-2">
+            <thead class="table-primary">
+              <tr><th scope="col">Conversión</th><th scope="col">Espero</th><th scope="col">Sale</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">String(123)</th><td><code>"123"</code></td><td><code>"123"</code></td></tr>
+              <tr><th scope="row">Number("123")</th><td><code>123</code></td><td><code>123</code></td></tr>
+              <tr><th scope="row">Number("12abc")</th><td><code>NaN</code></td><td><code>NaN</code></td>></tr>
+              <tr><th scope="row">Number("")</th><td><code>0</code></td><td><code>0</code></td></tr>
+              <tr><th scope="row">Number(true)</th><td><code>1</code></td><td><code>1</code></td></tr>
+              <tr><th scope="row">Boolean(0)</th><td><code>0</code></td><td><code>0</code></td></tr>
+              <tr><th scope="row">Boolean("texto")</th><td><code>true</code></td><td><code>true</code></td></tr>
+              <tr><th scope="row">Boolean("")</th><td><code>false</code></td><td><code>true <span class="badge text-bg-danger">Fallé</span></code></td></tr>
+
+
+
+
+            </tbody>
+          </table>
+        </div>
+
+        <!-- 4) Tu explicación -->
+        <p class="small mb-0"><strong>En cuanto a las conversiones:</strong> Parece que ha salido lo que esperaba</p>
+      </div>
+
+      <!-- 5) El botón. onclick="ejercicio1()" hace que, al pulsarlo, se ejecute la función ejercicio1() de js/app.js.
+              Cómo funciona lo veremos más adelante, con los eventos. De momento, cópialo tal cual y cambia solo el número. -->
+      <div class="card-footer">
+        <button type="button" class="btn btn-primary" onclick="ejercicio2()">
+          <i class="bi bi-play-fill"></i> Ejecutar ejercicio 2
+        </button>
+        <span class="small text-body-secondary ms-2">El resultado sale en la consola (F12).</span>
+      </div>
+    </section>
+
+
+
 
   </main>
 

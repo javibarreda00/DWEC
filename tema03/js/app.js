@@ -38,6 +38,33 @@ function ejercicio1() {
   asignaturasAprobadas= 8; //declaro el valor de la variable aquí
   console.log("asignaturasAprobadas =", asignaturasAprobadas, "→", typeof asignaturasAprobadas);
 
+  // Ejercicio 2 . Conversiones explícitas
+
+const a = String(123); //Espero que salga "123"
+  console.log("String(123) →", a, typeof a);
+
+  const b = Number("123"); // Espero que salga 123
+  console.log('Number("123") →', b, typeof b);
+
+  const c = Number("12abc"); //Espero que salga NaN
+  console.log('Number("12abc") →', c, typeof c);
+
+  const d = Number(""); //Espero que me de 0
+  console.log('Number("") →', d, typeof d);
+
+  const e = Number(true); //Espero que salga 1
+  console.log("Number(true) →", e, typeof e);
+
+  const f = Boolean(0); //Espero que salga 0
+  console.log("Boolean(0) →", f, typeof f);
+
+  const g = Boolean("texto"); //Espero que salga true
+  console.log('Boolean("texto") →', g, typeof g);
+
+  const h = Boolean("");//Espero que salga false
+  console.log('Boolean("") →', h, typeof h);
+  
+
 
   // TODO: declara una variable de cada tipo que falta: string, boolean, null, undefined y bigint (como 10n).
   //       const si no va a cambiar; let para al menos una a la que des valor más tarde.
