@@ -314,22 +314,26 @@
         <pre class="bg-dark text-light p-3 rounded small mb-4"><code>function ejercicio4() {
   console.log("--- Ejercicio 4 · Mi Ficha con Plantillas de Cadena ---");
 
+   //Guardo las constantes
   const nombre= "Javier";
   const apellidos= "Barreda";
   const ciclo= "Desarrollo de Aplicaciones Web";
   const curso= "2º";
   const aficion="Videojuegos";
 
-  let horasEstudiadas=3;
+  let horasEstudiadas=3; //let para el valor de las horas estudiadas que no es fijo
 
 
-  horasEstudiadas+= 3;
+  horasEstudiadas+= 3; //añado 3 horas a las horas estudiadas
 
+  //frase usando backticks con ${}
   const ficha= 'Mi nombre es $(nombre), de apellidos $(apellidos), estudio $(ciclo), en el curso $(curso) y mi afición son los $(aficion).';
 
+  //Mostrar ficha en consola y consola
   alert(ficha);
   console.log(ficha);
 
+   //frase usando concatenación con +
   const fichaConMas = "Soy " + nombre + " " + apellidos + ", estudio " + ciclo + " en " + curso + " y mi afición es " + aficion + ". Esta semana he estudiado " + horasEstudiadas + " horas.";
   console.log(fichaConMas);
 
