@@ -227,7 +227,30 @@ function bucleWhile() {
 }
 
 function bucleDoWhile() {
-  // TODO: lo mismo que bucleFor(), con un do…while. Pruébalo con 0 y con un negativo: ¿qué pasa?
+
+   const veces = leerNumero("numero1");
+  limpiarSalida();
+
+  if (
+    Number.isNaN(veces) ||
+    !Number.isInteger(veces) ||
+    veces > MAXIMO_REPETICIONES
+  ) {
+    mostrar(`Introduce un número entero que no supere ${MAXIMO_REPETICIONES}.`, "danger");
+    console.warn("Bucle For:número no válido");
+
+  } else {
+    let contador = 0;
+
+    do {
+      contador++;
+      anadirLinea(`do  while . repeticion ${contador} de ${veces}`);
+  } while (contador < veces);
+
+  const palabra = contador === 1 ? "repetición" : "repeticiones";
+  anadirLinea(`Total: ${contador} ${palabra}`); 
+}
+  
 }
 
 
