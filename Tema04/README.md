@@ -1,6 +1,6 @@
 # Tarea 4 · Calculadora y bucles
 
-**Autor:** [Tu nombre y apellidos] · Desarrollo Web en Entorno Cliente (DWEC) · 2.º DAW · Curso 2026-27
+**Autor:** Javier Barreda Zurera · Desarrollo Web en Entorno Cliente (DWEC) · 2.º DAW · Curso 2026-27
 
 > **Plantilla de la tarea 4.** Cómo usarla:
 >
@@ -19,31 +19,33 @@
 
 <img src="capturas/a-pagina.png" alt="La página entera con mi nombre en la navbar" width="600">
 
-[Qué se ve: tu nombre en la navbar y cómo has repartido las cards con la rejilla.]
+Se ve mi nombre, lo que hace mi calculadora y las rejillas de los cuatro ejercicios repartidos en el navegador, en orden top left a bottom right.
 
 ### b) La página en el móvil
 
 <img src="capturas/b-movil.png" alt="La página en el modo móvil de las herramientas de desarrollo" width="300">
 
-[Qué cambia respecto a la pantalla grande.]
+En este caso cambia la posición de los contenedores, ya que los de la derecha se desplazan hacia abajo.
 
 ### c) El error de dividir entre 0
 
 ![El error de dividir entre 0 con la consola abierta](capturas/c-dividir-cero.png)
 
-[Qué se ve en la página y en la consola.]
+
+En vez del infinity, Se ve el mensaje en rojo de que no se puede dividir entre 0. 
 
 ### d) Los tres bucles con el número 0
 
 ![Los tres bucles de texto con el número 0 y la consola abierta](capturas/d-bucles-cero.png)
+![Los tres bucles de texto con el número 0 y la consola abierta](capturas/d-bucles-cero1.png)
 
-[Cuántas veces se repite cada bucle y por qué.]
+El bucle for y while no ejecutan ninguna repetición mientras que el do-while sí lo hace, haciendo al menos 1.
 
 ### e) Un bucle con badges
 
 ![Un bucle con badges](capturas/e-badges.png)
 
-[Qué número has puesto y cómo eliges el color de cada badge.]
+He puesto el número 10 para que saque 10 repeticiones, he elegido los colores azul y rojo, ya que son diferenciables y discordantes el uno con el otro.
 
 ## Reflexión
 
