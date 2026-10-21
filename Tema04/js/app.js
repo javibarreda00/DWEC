@@ -149,6 +149,22 @@ function cualEsMayor() {
 }
 
 function parOImpar() {
+
+  const n1= leerNumero("numero1");
+
+  if (Number.isNaN(n1)){
+    mostrar("Escribe un número antes de comprobar", "danger");
+    console.warn("Saber si es PAR|IMPAR: falta un número");
+  } else if (!Number.isInteger(n1)) {
+  mostrar(`${n1} no es par ni impar`);
+  } else {
+
+    const resultado= n1 % 2 === 0 ? "par" : "impar";
+    mostrar(`${n1} es un numero ${resultado}.`);
+    console.log(`ParImpar: ${n1} es ${resultado}`);
+
+  }
+
   // TODO: solo con el número 1. Usa el operador % y el ternario ( condición ? "par" : "impar" ).
   // TODO: si el número tiene decimales, avisa de que no es ni par ni impar.
 }
