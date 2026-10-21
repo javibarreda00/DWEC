@@ -2,14 +2,8 @@
 
 **Autor:** Javier Barreda Zurera · Desarrollo Web en Entorno Cliente (DWEC) · 2.º DAW · Curso 2026-27
 
-> **Plantilla de la tarea 4.** Cómo usarla:
->
-> 1. Copia esta carpeta en tu repositorio de DWEC y cámbiale el nombre a `tema04`.
-> 2. `index.html` trae lo imprescindible para empezar: las dos casillas, la zona de resultado y el botón «Sumar». El resto de la página y su maquetación con Bootstrap los haces tú.
-> 3. `js/app.js` trae `sumar()` hecha como modelo y las demás funciones con `TODO`.
-> 4. `js/ayudas.js` no se toca: son las funciones que leen las casillas y escriben el resultado.
-> 5. Sustituye las imágenes de `capturas/` por las tuyas, **con el mismo nombre**.
-> 6. Todo lo que va entre [corchetes] es un hueco: cámbialo por lo tuyo. Al terminar, borra este aviso.
+> **Plantilla de la tarea 4.** 
+
 
 [Una o dos líneas: qué hay en esta carpeta y cómo se ve. Por ejemplo: abrir la carpeta en VS Code, pulsar **Go Live**, escribir dos números y pulsar los botones con la consola abierta (F12).]
 
@@ -49,7 +43,7 @@ He puesto el número 10 para que saque 10 repeticiones, he elegido los colores a
 
 ## Reflexión
 
-[De 5 a 8 líneas: ¿en qué se diferencian for, while y do…while y cuándo usarías cada uno? Pon como ejemplo lo que pasó con el 0.]
+El bucle for lo utilizaría cuando sabes las veces que quieres que se repita algo, el bucle while lo usaría para repetir comandos o instrucciones siempre que cumpla la condición del código y el bucle do while para ejecutar el código al menos una vez y después comprueba la condición, por ejemplo, al introducir el número 0, for y while no se ejecutan ni una sola vez, en cambio do while lo ejecuta al menos una vez porque comprueba la condición al final. También usaría for para repetir un número concreto de veces, y while cuando dependa de una condición.
 
 ## Fuentes
 
@@ -57,4 +51,4 @@ He puesto el número 10 para que saque 10 repeticiones, he elegido los colores a
 
 ## Uso de IA
 
-[Si has usado IA: qué herramienta, para qué y qué hiciste después con su respuesta. Si no la has usado, borra este apartado.]
+He usado la IA de ChatGpt para ayudarme a la estructura del primer bucle for del ejercicio 3, y para las rejillas del ejercicio 3 y 4 para poder colocarlas a la derecha y no abajo de los otros ejercicios.
