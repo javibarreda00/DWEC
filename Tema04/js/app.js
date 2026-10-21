@@ -259,9 +259,30 @@ function bucleDoWhile() {
 // ============================================================
 
 function badgesFor() {
-  // TODO: como bucleFor(), pero cada vuelta añade un badge con el número de la repetición:
-  //         anadirBadge(i, "primary");
-  // TODO: los pares, de un color y los impares, de otro. Elige el color con el operador ternario.
+
+  const veces = leerNumero("numero1");
+  limpiarSalida();
+
+  if (
+    Number.isNaN(veces) ||
+    !Number.isInteger(veces) ||
+    veces > MAXIMO_REPETICIONES
+  ) {
+    mostrar(`Introduce un número entero que no supere ${MAXIMO_REPETICIONES}.`, "danger");
+    console.warn("Bucle For:número no válido");
+
+  } else {
+    let contador = 0;
+
+    for(let i = 1; i <= veces; i++) {
+      const color= i % 2 === 0 ? "primary" : "danger";
+      anadirBadge(i,color);
+      contador++;
+    }
+     const palabra = contador === 1 ? "repetición" : "repeticiones";
+     anadirLinea(`Total: ${contador} ${palabra}`);
+  }
+ 
 }
 
 function badgesWhile() {
