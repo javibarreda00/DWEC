@@ -109,17 +109,17 @@ function modulo() {
 
   if (Number.isNaN(n1) || Number.isNaN(n2)) {
     mostrar("Escribe los dos números antes de operar.", "danger");
-    console.warn("Módulo: falta algún número");
+    console.warn("Modulo: falta algún número");
   } else if (n1 === 0) {
     mostrar("El número 1 no puede ser 0.", "danger");
-    console.warn("Módulo: el número 1 es 0");
+    console.warn("Modulo: el número 1 es 0");
   } else if (n2 === 0) {
     mostrar("No se puede calcular el módulo con divisor 0.", "danger");
-    console.warn("Módulo: el divisor es 0");
+    console.warn("Modulo: el divisor es 0");
   } else {
     const resultado = n1 % n2;
     mostrar(`${n1} % ${n2} = ${resultado}`);
-    console.log(`Módulo: ${n1} % ${n2} = ${resultado}`);
+    console.log(`Modulo: ${n1} % ${n2} = ${resultado}`);
   }
 }
 
