@@ -312,5 +312,31 @@ function badgesWhile() {
 }
 
 function badgesDoWhile() {
-  // TODO: lo mismo que badgesFor(), con un do…while.
+
+  const veces = leerNumero("numero1");
+  limpiarSalida();
+
+  if (
+    Number.isNaN(veces) ||
+    !Number.isInteger(veces) ||
+    veces > MAXIMO_REPETICIONES
+  ) {
+    mostrar(`Introduce un número entero que no supere ${MAXIMO_REPETICIONES}.`, "danger");
+    console.warn("Bucle For:número no válido");
+
+  } else {
+    let contador = 0;
+
+    do {
+      contador++;
+      const color= contador % 2 === 0 ? "primary" : "danger";
+      anadirBadge(contador,color);
+  } while (contador < veces);
+
+  const palabra = contador === 1 ? "repetición" : "repeticiones";
+  anadirLinea(`Total: ${contador} ${palabra}`); 
 }
+  
+}
+ 
+
