@@ -61,39 +61,58 @@
       </div>
     </section>
 
-    <!-- EJERCICIO 1 · Calculadora -->
-    <section class="card mb-4">
-      <div class="card-header">Calculadora</div>
-      <div class="card-body">
-        <!-- Cada botón llama con onclick a su función de js/app.js, como en la tarea 3 -->
-        <button type="button" class="btn btn-primary" onclick="sumar()">Sumar</button>
-        <button type="button" class="btn btn-primary" onclick="restar()">Restar</button>
-        <button type="button" class="btn btn-primary" onclick="multiplicar()">Multiplicar</button>
-        <button type="button" class="btn btn-primary" onclick="dividir()">Dividir</button>
-        <button type="button" class="btn btn-primary" onclick="potencia()">Potencia</button>
-        <button type="button" class="btn btn-primary" onclick="modulo()">Modulo</button>
-
-        <!-- TODO: los botones Restar, Multiplicar, Dividir, Potencia y Módulo:
-                   restar(), multiplicar(), dividir(), potencia() y modulo() -->
-      </div>
-    </section>
-
-    <!-- EJERCICIO 2 · Comparaciones -->
+    <!-- EJERCICIOS 1 A 4 -->
     <div class="row">
-    <div class="col-12 col-lg-6">
-    <section class="card mb-4">
-    <div class="card-header">Comparaciones</div>
-    <div class="card-body">
-      <button type="button" class="btn btn-primary" onclick="cualEsMayor()">¿Cual es mayor?</button>
-      <button type="button" class="btn btn-primary" onclick="parOImpar()">¿Par o impar?</button>
-    </div>
-    </section>
-    </div>
-    </div>
+      <div class="col-12 col-lg-6">
+        <!-- EJERCICIO 1 · Calculadora -->
+        <section class="card mb-4">
+          <div class="card-header">Calculadora</div>
+          <div class="card-body">
+            <button type="button" class="btn btn-primary" onclick="sumar()">Sumar</button>
+            <button type="button" class="btn btn-primary" onclick="restar()">Restar</button>
+            <button type="button" class="btn btn-primary" onclick="multiplicar()">Multiplicar</button>
+            <button type="button" class="btn btn-primary" onclick="dividir()">Dividir</button>
+            <button type="button" class="btn btn-primary" onclick="potencia()">Potencia</button>
+            <button type="button" class="btn btn-primary" onclick="modulo()">Modulo</button>
+          </div>
+        </section>
 
-    <!-- TODO EJERCICIOS 3 Y 4 · Bucles: una card con dos grupos de botones (btn-group)
-               Con texto:  for → bucleFor()    while → bucleWhile()    do…while → bucleDoWhile()
-               Con badges: for → badgesFor()   while → badgesWhile()   do…while → badgesDoWhile() -->
+        <!-- EJERCICIO 2 · Comparaciones -->
+        <section class="card mb-4">
+          <div class="card-header">Comparaciones</div>
+          <div class="card-body">
+            <button type="button" class="btn btn-primary" onclick="cualEsMayor()">¿Cuál es mayor?</button>
+            <button type="button" class="btn btn-primary" onclick="parOImpar()">¿Par o impar?</button>
+          </div>
+        </section>
+      </div>
+
+      <div class="col-12 col-lg-6">
+        <!-- EJERCICIO 3 · Bucles con texto -->
+        <section class="card mb-4">
+          <div class="card-header">Ejercicio 3 · Bucles con texto</div>
+          <div class="card-body">
+            <div class="btn-group w-100" role="group" aria-label="Bucles con texto">
+              <button type="button" class="btn btn-primary" onclick="bucleFor()">for</button>
+              <button type="button" class="btn btn-primary" onclick="bucleWhile()">while</button>
+              <button type="button" class="btn btn-primary" onclick="bucleDoWhile()">do…while</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- EJERCICIO 4 · Bucles con badges -->
+        <section class="card mb-4">
+          <div class="card-header">Ejercicio 4 · Bucles con badges</div>
+          <div class="card-body">
+            <div class="btn-group w-100" role="group" aria-label="Bucles con badges">
+              <button type="button" class="btn btn-primary" onclick="badgesFor()">for</button>
+              <button type="button" class="btn btn-primary" onclick="badgesWhile()">while</button>
+              <button type="button" class="btn btn-primary" onclick="badgesDoWhile()">do…while</button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
 
   </main>
 

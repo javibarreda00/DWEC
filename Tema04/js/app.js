@@ -165,8 +165,6 @@ function parOImpar() {
 
   }
 
-  // TODO: solo con el número 1. Usa el operador % y el ternario ( condición ? "par" : "impar" ).
-  // TODO: si el número tiene decimales, avisa de que no es ni par ni impar.
 }
 
 
