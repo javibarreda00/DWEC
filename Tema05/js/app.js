@@ -29,8 +29,8 @@ function aplicarCambios() {
   const segundo = document.querySelector(".segundo");
   segundo.classList.add("bg-warning-subtle");
 
-  const tercero = document.querySelectorAll("tercero");
-  tercero.classList.add("text-danger");
+  const tercero = document.querySelectorAll("#contenido p");
+  tercero[2].classList.add("text-danger");
 
   console.log("Cambios en los tres párrafos");
 
