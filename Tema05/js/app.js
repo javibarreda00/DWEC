@@ -48,10 +48,10 @@ function anadirParrafo() {
   const parrafo = document.querySelector("#contenido");
   const nuevo = document.createElement("p");
 
-  nuevo.textContent = "Párrafo añadido ${parrafo.children.length + 1}";
+  nuevo.textContent = `Párrafo añadido ${parrafo.children.length + 1}`;
 
   parrafo.append(nuevo);
-  console.log("Párrafo añadido. Se ha añadido ${parrafo.children.length}");
+  console.log(`Párrafo añadido. Se ha añadido ${parrafo.children.length}`);
   // TODO: crea un <p> con document.createElement().
   // TODO: dale el texto «Párrafo nuevo N», donde N es el número de párrafos que habrá en #contenido
   //       (pista: document.querySelector("#contenido").children.length).
@@ -97,6 +97,8 @@ function activarResaltado() {
 
     // TODO: lo mismo con "mouseleave" (cuando el ratón sale) para quitar la clase.
   }
+
+  console.log(`Resaltado activado en  ${parrafos.length} párrafos`);
    
   // TODO: un console.log() que diga en cuántos párrafos se ha activado (parrafos.length).
 }
