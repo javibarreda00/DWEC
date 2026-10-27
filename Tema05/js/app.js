@@ -59,6 +59,18 @@ function anadirParrafo() {
 }
 
 function eliminarUltimo() {
+
+  const ultimo = document.querySelector("#contenido").lastElementChild;
+
+   if(ultimo === null) {
+    //Cuando no queda ninguna para eliminar se muestra un aviso de error
+    document.querySelector("#aviso2").classList.remove("d-none");
+    console.log("Ya se han eliminado los párrafos que se podían");
+   } else {
+    ultimo.remove();
+    console.log("Último párrafo eliminado");
+   }
+
   // TODO: busca el último párrafo de #contenido (lastElementChild).
   // TODO: si es null (ya no queda ninguno), muestra el aviso #aviso2 quitándole la clase "d-none".
   //       Si no, bórralo con remove().
