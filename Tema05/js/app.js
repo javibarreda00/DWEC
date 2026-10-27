@@ -32,7 +32,7 @@ function aplicarCambios() {
   const tercero = document.querySelectorAll("#contenido p");
   tercero[2].classList.add("text-danger");
 
-  console.log("Cambios en los tres párrafos");
+  console.log("Cambios en las tres líneas, la segunda con background warning y la tercera con text danger.");
 
   // TODO: el segundo párrafo, con querySelector y su clase (.segundo): resáltalo con la clase "bg-warning-subtle".
   // TODO: el tercero, con querySelectorAll("#contenido p") y su posición en la lista: ponlo en rojo con "text-danger".
