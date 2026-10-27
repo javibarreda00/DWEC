@@ -26,7 +26,7 @@ function aplicarCambios() {
   primero.textContent = "Texto modificado por JavaScript";
 
 
-  const segundo = document.querySelector("segundo");
+  const segundo = document.querySelector(".segundo");
   segundo.classList.add("bg-warning-subtle");
 
   const tercero = document.querySelectorAll("tercero");
