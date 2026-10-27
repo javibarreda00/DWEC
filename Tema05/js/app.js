@@ -48,10 +48,10 @@ function anadirParrafo() {
   const parrafo = document.querySelector("#contenido");
   const nuevo = document.createElement("p");
 
-  nuevo.textContent = "Párrafo añadido ${parrafo.children.length} + 1";
+  nuevo.textContent = "Párrafo añadido ${parrafo.children.length + 1}";
 
   parrafo.append(nuevo);
-  console.log("Párrafo añadido. Se ha añadido ${parrafo}")
+  console.log("Párrafo añadido. Se ha añadido ${parrafo.children.length}");
   // TODO: crea un <p> con document.createElement().
   // TODO: dale el texto «Párrafo nuevo N», donde N es el número de párrafos que habrá en #contenido
   //       (pista: document.querySelector("#contenido").children.length).
