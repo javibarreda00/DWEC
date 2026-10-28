@@ -95,12 +95,10 @@ function activarResaltado() {
       parrafo.classList.remove("bg-body-secondary");
     });
 
-    // TODO: lo mismo con "mouseleave" (cuando el ratón sale) para quitar la clase.
   }
 
   console.log(`Resaltado activado en  ${parrafos.length} párrafos`);
    
-  // TODO: un console.log() que diga en cuántos párrafos se ha activado (parrafos.length).
 }
 
 
@@ -124,9 +122,7 @@ function cambiarTexto() {
   error.classList.add("d-none");
   console.log(`Primer parrafo cambiado usando textContent: ${texto}`);
  }
-  // TODO: lee lo escrito en #nuevoTexto con value y quítale los espacios de los extremos con trim().
-  // TODO: si está vacío, muestra el error #error4 (quítale "d-none") y no cambies nada.
-  // TODO: si no, pon ese texto en el primer párrafo de #contenido con textContent y oculta el error.
+  
 }
 
 function cambiarConHtml() {
@@ -145,9 +141,6 @@ function cambiarConHtml() {
   error.classList.add("d-none");
   console.log(`Primer parrafo cambiado usando innerHTML: ${texto}`);
  }
-
-  // TODO: lo mismo que cambiarTexto(), pero con innerHTML.
-  //       Prueba las dos con <b>hola</b> y explica en el README qué diferencia ves y por qué es peligroso.
 }
 
 
@@ -216,11 +209,7 @@ function borrarCompletadas() {
 
 
 }
-  // TODO: selecciona las casillas marcadas: document.querySelectorAll("#listaTareas input:checked").
-  // TODO: si no hay ninguna, avisa en #error5. Si hay, recórrelas con for…of y borra el <li> de cada una
-  //       (el <li> es el padre de la casilla: parentElement).
-  // TODO: actualiza #totalTareas.
-}
+ 
 
 
 // ============================================================
@@ -233,6 +222,25 @@ function verDatosVentana() {
   const alto = window.innerHeight;
   document.querySelector("#datoVentana").textContent = `${ancho} × ${alto} px`;
 
+  let tipodato;
+
+  if (ancho >= 1400) {
+    tipodato ="xxl";
+  } else if (ancho >= 1200) {
+    tipodato ="xl";
+  } else if (ancho >= 992) {
+    tipodato ="lg";
+  } else if (ancho >= 768) {
+    tipodato ="md";
+  } else if (ancho >= 576) {
+    tipodato ="sm";
+  } else {
+    tipodato ="xs";
+  }
+
+  dcocument.querySelector("#tipodedato").textContent = tipodato;
+
+  
   // TODO: con if / else if, el punto de corte de Bootstrap según el ancho: xs (< 576), sm (≥ 576), md (≥ 768),
   //       lg (≥ 992), xl (≥ 1200) y xxl (≥ 1400). Escríbelo en #datoPunto.
   // TODO: el tamaño de la pantalla (screen.width y screen.height) en #datoPantalla.
