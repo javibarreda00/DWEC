@@ -130,6 +130,22 @@ function cambiarTexto() {
 }
 
 function cambiarConHtml() {
+
+  const texto = document.querySelector("#nuevoTexto").value.trim();
+  const error = document.querySelector("#error4");
+  const primero = document.querySelector("#contenido").firstElementChild;
+
+  if (texto === "") {
+ error.classList.remove("d-none");
+ console.log("Error:el campo esta vacío");
+ } else if (primero === null) {
+  console.log("No se encuentran párrafos en #contenido");
+ } else {
+  primero.innerHTML = texto;
+  error.classList.add("d-none");
+  console.log(`Primer parrafo cambiado usando innerHTML: ${texto}`);
+ }
+
   // TODO: lo mismo que cambiarTexto(), pero con innerHTML.
   //       Prueba las dos con <b>hola</b> y explica en el README qué diferencia ves y por qué es peligroso.
 }
