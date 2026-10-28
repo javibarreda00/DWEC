@@ -164,12 +164,36 @@ function actualizarTareas() {
 
 
 function anadirTarea() {
-  // TODO: lee el texto de #tareaInput (value + trim). Si está vacío, muestra un mensaje en #error5.
-  // TODO: si no, crea un <li class="list-group-item"> con dos elementos dentro:
-  //         · un <input> de tipo "checkbox" con la clase "form-check-input",
-  //         · un <span> con el texto de la tarea (textContent).
-  //       Cuelga el <li> de #listaTareas y vacía la casilla (value = "").
-  // TODO: actualiza #totalTareas con el número de <li> que hay en la lista.
+
+  const input =  document.querySelector("#tareaInput");
+  const error = document.querySelector("#error5");
+  const texto = input.value.trim();
+
+  if (texto === "") {
+    error.textContent = "Escribe una tarea antes de añadirla";
+    error.classList.remove("d-none");
+    console.log("Error: tarea vacía");
+  }else {
+
+    const li = document.createElement("li");
+    li.classList.add("list-group-item");
+
+    const casilla = document.createElement("input");
+    casilla.type = "checkbox";
+    casilla.classList.add("form-check-input", "me-2");
+
+    const span = document.createElement("span");
+    span.textContent = texto;
+
+    li.append(casilla, span);
+    document.querySelector("#listaTareas").append(li);
+
+    input.value = "";
+    error.classList.add("d-none");
+    actualizarTareas();
+    console.log(`Tarea añadida: ${texto}`);
+  }
+
 }
 
 function borrarCompletadas() {
