@@ -209,7 +209,7 @@ function borrarCompletadas() {
 
 
 }
- 
+}
 
 
 // ============================================================
@@ -238,13 +238,12 @@ function verDatosVentana() {
     tipodato ="xs";
   }
 
-  document.querySelector("#tipodedato").textContent = tipodato;
+  document.querySelector("#datoPunto").textContent = tipodato;
 
   document.querySelector("#datoPantalla").textContent = `${screen.width} x ${screen.height} px`;
   document.querySelector("#datoUrl").textContent = location.href;
   document.querySelector("#datoIdioma").textContent = navigator.language;  
 
-  console.log(`Ventana ${ancho} x ${alto}, punto de corte ${punto}`);
+  console.log(`Ventana ${ancho} x ${alto}, punto de corte ${tipodato}`);
 
-}
 }
