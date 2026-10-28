@@ -110,7 +110,7 @@ function activarResaltado() {
 
 function cambiarTexto() {
 
-  const texto = document.querySelector("nuevoTexto").value.trim();
+  const texto = document.querySelector("#nuevoTexto").value.trim();
   const error = document.querySelector("#error4");
   const primero = document.querySelector("#contenido").firstElementChild;
 
