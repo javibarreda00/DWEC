@@ -238,11 +238,13 @@ function verDatosVentana() {
     tipodato ="xs";
   }
 
-  dcocument.querySelector("#tipodedato").textContent = tipodato;
+  document.querySelector("#tipodedato").textContent = tipodato;
 
-  
-  // TODO: con if / else if, el punto de corte de Bootstrap según el ancho: xs (< 576), sm (≥ 576), md (≥ 768),
-  //       lg (≥ 992), xl (≥ 1200) y xxl (≥ 1400). Escríbelo en #datoPunto.
-  // TODO: el tamaño de la pantalla (screen.width y screen.height) en #datoPantalla.
-  // TODO: la URL (location.href) en #datoUrl y el idioma del navegador (navigator.language) en #datoIdioma.
+  document.querySelector("#datoPantalla").textContent = `${screen.width} x ${screen.height} px`;
+  document.querySelector("#datoUrl").textContent = location.href;
+  document.querySelector("#datoIdioma").textContent = navigator.language;  
+
+  console.log(`Ventana ${ancho} x ${alto}, punto de corte ${punto}`);
+
+}
 }
