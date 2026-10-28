@@ -1,16 +1,4 @@
-/*
-  Tarea 5 · DWEC · [Tu nombre y apellidos]
-  Manipular el DOM.
 
-  Cómo usar esta plantilla:
-  · Desde este tema, el JavaScript escribe en la página: selecciona elementos y cambia su texto, sus clases...
-  · Hay una función por botón. Escribe tu código donde pone TODO y, cuando termines, borra el TODO.
-  · app.js se carga en el <head> con defer: cuando se ejecuta, el HTML ya está leído.
-  · Selecciona con document.querySelector() / querySelectorAll() (o getElementById).
-  · Texto con textContent; aspecto con classList y las clases de Bootstrap (no con style).
-  · Cada función deja también su rastro en la consola con console.log().
-  · let y const, nunca var. Compara siempre con ===. Comillas rectas.
-*/
 
 console.log("app.js cargado");
 
@@ -34,9 +22,7 @@ function aplicarCambios() {
 
   console.log("Cambios en las tres líneas, la segunda con background warning y la tercera con text danger.");
 
-  // TODO: el segundo párrafo, con querySelector y su clase (.segundo): resáltalo con la clase "bg-warning-subtle".
-  // TODO: el tercero, con querySelectorAll("#contenido p") y su posición en la lista: ponlo en rojo con "text-danger".
-  // TODO: un console.log() que diga que se han aplicado los cambios.
+  
 }
 
 
@@ -52,10 +38,7 @@ function anadirParrafo() {
 
   parrafo.append(nuevo);
   console.log(`Párrafo añadido. Se ha añadido ${parrafo.children.length}`);
-  // TODO: crea un <p> con document.createElement().
-  // TODO: dale el texto «Párrafo nuevo N», donde N es el número de párrafos que habrá en #contenido
-  //       (pista: document.querySelector("#contenido").children.length).
-  // TODO: cuélgalo al final de #contenido con append().
+  
 }
 
 function eliminarUltimo() {
@@ -71,9 +54,7 @@ function eliminarUltimo() {
     console.log("Último párrafo eliminado");
    }
 
-  // TODO: busca el último párrafo de #contenido (lastElementChild).
-  // TODO: si es null (ya no queda ninguno), muestra el aviso #aviso2 quitándole la clase "d-none".
-  //       Si no, bórralo con remove().
+  
 }
 
 
