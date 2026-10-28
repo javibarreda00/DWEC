@@ -197,6 +197,25 @@ function anadirTarea() {
 }
 
 function borrarCompletadas() {
+
+  const completadas = document.querySelectorAll("#listaTareas input:checked");
+  const error = document.querySelector("#error5");
+
+  if (completadas.length === 0) {
+    error.textContent = "No hay ninguna tarea marcada";
+    error.classList.remove("d-none");
+    console.log("No hay tareas que borrar");
+} else {
+
+  for (const casilla of completadas) {
+    casilla.parentElement.remove();
+  }
+  error.classList.add("d-none");
+  actualizarTareas();
+  console.log(`${completadas.length} tareas completadas eliminadas`);
+
+
+}
   // TODO: selecciona las casillas marcadas: document.querySelectorAll("#listaTareas input:checked").
   // TODO: si no hay ninguna, avisa en #error5. Si hay, recórrelas con for…of y borra el <li> de cada una
   //       (el <li> es el padre de la casilla: parentElement).
