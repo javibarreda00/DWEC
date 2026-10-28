@@ -155,6 +155,14 @@ function cambiarConHtml() {
 // Ejercicio 5 · Lista de tareas
 // ============================================================
 
+function actualizarTareas() {
+
+  const total = document.querySelectorAll("#listaTareas li").length;
+  document.querySelector("#totalTareas").textContent = total;
+
+}
+
+
 function anadirTarea() {
   // TODO: lee el texto de #tareaInput (value + trim). Si está vacío, muestra un mensaje en #error5.
   // TODO: si no, crea un <li class="list-group-item"> con dos elementos dentro:
