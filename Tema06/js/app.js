@@ -36,6 +36,16 @@ function comoTexto(lista) {
 //       Por ejemplo: «Soy [nombre] [apellidos], tengo [edad] años y estudio [curso].»
 const estudiante = {
 
+  nombre:"Javi",
+  apellidos:"Barreda Zurera",
+  edad:25,
+  curso:"2ºDAW",
+  presentarse: function() {
+   return "Soy " + this.nombre + " " + this.apellidos +
+   ", tengo " + this.edad + " años y estoy estudiando " + this.curso + ".";
+
+  }
+
 };
 
 function verFicha() {
