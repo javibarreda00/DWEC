@@ -454,20 +454,65 @@ function verCadena() {
 // ============================================================
 
 const ciudadesOriginal = ["Granada", "Sevilla", "Málaga", "Córdoba", "Jaén", "Almería", "Cádiz", "Huelva"];
-let ciudades = [...ciudadesOriginal];   // una copia: splice cambia ciudades y así podemos restaurarla
+let ciudades = [...ciudadesOriginal];  // una copia: splice cambia ciudades y así podemos restaurarla
+
+function escribir6(lineas){
+  const salida = document.querySelector("#salida6");
+  salida.textContent = "";
+
+  lineas.forEach(function (linea) {
+    const p = document.createElement("P");
+    p.classList.add("mb-1");
+    p.textContent = linea;
+    salida.append(p);
+
+
+
+
+  });
+}
+
+
 
 function mostrarCiudades() {
-  // TODO: vacía #ciudades y pon un badge por ciudad con su posición: «0 · Granada», «1 · Sevilla»...
-  //       Pista: forEach le pasa a tu función dos datos: function (ciudad, posicion) { ... }.
+  const contenedor = document.querySelector("#ciudades");
+  contenedor.textContent = "";
+
+  ciudades.forEach(function (ciudad, posicion) {
+    const badge = document.createElement("span");
+    badge.classList.add("badge", "text-bg-light", "border", "me-1");
+    badge.textContent = posicion + " . " + ciudad;
+    contenedor.append(badge);
+
+
+
+  });
 }
 
 function verSlice() {
-  // TODO: guarda ciudades.slice(2, 5) y escribe en #salida6 qué devuelve y cuántas ciudades siguen en el array.
+  const trozo = ciudades.slice(2, 5);
+
+  escribir6([
+    "slice(2, 5) devuelve " + comoTexto(trozo),
+    "ciudades sigue teniendo " + ciudades.length + " elementos : nada ha cambiado."
+  ]);
+  console.log("Ejercicio 6: slice ->", comoTexto(trozo), "ciudades:", ciudades.length);
 }
 
 function hacerSplice() {
-  // TODO: si quedan menos de 3 ciudades, avisa en #salida6 de que hay que restaurar y no hagas nada más.
-  // TODO: si no, ciudades.splice(2, 2): escribe en #salida6 qué devuelve y cuántas quedan, y vuelve a pintar.
+  if (ciudades.length < 3) {
+    escribir6(["Quedan pocas ciudades: pulsa <<Restaurar>> para recuperarlas."]);
+    return;
+  }
+
+  const quitadas = ciudades.splice(2, 2);
+
+  escribir6([
+    "splice(2, 2) devuelve" + comoTexto(quitadas),
+    "ciudades ahora tiene " + ciudades.length + " elementos: sí ha cambiado."
+  ]);
+  mostrarCiudades();
+  console.log("Ejercicio 6: splice ->", comoTexto(quitadas), "ciudades:", comoTexto(ciudades));
 }
 
 function restaurarCiudades() {
