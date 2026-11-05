@@ -67,6 +67,9 @@ function verFicha() {
 
   });
 
+  const frase = document.createElement("p");
+  frase.classList.add("mt-2" , "fst-italic");
+  frase.textContent = estudiante.presentarse();
 
 
 
