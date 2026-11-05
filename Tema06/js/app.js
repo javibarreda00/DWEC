@@ -520,12 +520,26 @@ function restaurarCiudades() {
   mostrarCiudades();
   escribir6(["Ciudades restauradas: vuelven a un total de " + ciudades.length + "."]);
   console.log("Ejercicio 6: restaurar ->", comoTexto(ciudades));
-  // TODO: vuelve a copiar ciudadesOriginal en ciudades y pinta.
+  
 }
 
 function buscarCiudad() {
-  // TODO: lee #buscarCiudad (value y trim). Si está vacío, avisa.
-  // TODO: escribe en #salida6 lo que dan includes() e indexOf() con ese nombre. Si no está, indexOf da -1.
+   const nombre = document.querySelector("#buscarCiudad").value.trim();
+ 
+  if (nombre === "") {
+    escribir6(["Escribe el nombre de una ciudad para buscarla."]);
+    return;
+  }
+ 
+  const esta = ciudades.includes(nombre);
+  const posicion = ciudades.indexOf(nombre);   // -1 si no está
+ 
+  escribir6([
+    "includes(\"" + nombre + "\") → " + esta,
+    "indexOf(\"" + nombre + "\") → " + posicion
+  ]);
+  console.log("Ejercicio 6: buscar " + nombre + " → includes:", esta, "| indexOf:", posicion);
+.
 }
 
 mostrarCiudades();
