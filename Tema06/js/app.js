@@ -268,12 +268,33 @@ mostrarProductos();   // la tabla completa nada más cargar
 // ============================================================
 
 const alumno = {
-  nombre: "[Tu nombre]",
-  notas: []
-  // TODO: método anadirNota(nota): si la nota no es un número (Number.isNaN) o no está entre 0 y 10, devuelve false;
-  //       si es válida, la añade a this.notas con push y devuelve true.
-  // TODO: método media(): si no hay notas devuelve 0; si hay, la suma (con reduce) dividida entre el número de notas.
-  //       Recuerda la coma entre una propiedad y la siguiente.
+  nombre: "Javier Barreda Zurera",
+  notas: [],
+
+  anadirNota: function (nota) {
+  if (Number.isNaN(nota) || nota < 0 || nota > 10) {
+    return false;
+
+
+
+
+  }
+
+this.notas.push(nota);
+return true;
+
+  },
+
+  media: function () {
+    if (this.notas.length === 0) {
+      return 0;
+    }
+    const suma = this.notas.reduce(function (total, nota) {
+      return total + nota;
+    }, 0);
+    return suma / this.notas.length;
+  }
+  
 };
 
 function mostrarNotas() {
