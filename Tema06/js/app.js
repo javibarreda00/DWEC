@@ -351,7 +351,9 @@ function anadirNota() {
 }
 
 function borrarNotas() {
-  // TODO: deja alumno.notas vacío y vuelve a pintar.
+  alumno.notas = [];
+  document.querySelector("#error4").classList.add("d-none");
+  mostrarNotas();
 }
 
 mostrarNotas();
