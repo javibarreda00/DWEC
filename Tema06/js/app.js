@@ -516,6 +516,10 @@ function hacerSplice() {
 }
 
 function restaurarCiudades() {
+  ciudades = [...ciudadesOriginal];
+  mostrarCiudades();
+  escribir6(["Ciudades restauradas: vuelven a un total de " + ciudades.length + "."]);
+  console.log("Ejercicio 6: restaurar ->", comoTexto(ciudades));
   // TODO: vuelve a copiar ciudadesOriginal en ciudades y pinta.
 }
 
