@@ -42,19 +42,34 @@ const estudiante = {
   curso:"2ºDAW",
   presentarse: function() {
    return "Soy " + this.nombre + " " + this.apellidos +
-   ", tengo " + this.edad + " años y estoy estudiando " + this.curso + ".";
+   ", tengo " + this.edad + " años y estudio " + this.curso + ".";
 
   }
 
 };
 
 function verFicha() {
-  // TODO: vacía #salida1 (textContent = "").
-  // TODO: crea un <ul class="list-group"> con un <li class="list-group-item"> por propiedad: «nombre: ...», «edad: ...».
-  //       Pista: guarda las claves en un array, ["nombre", "apellidos", "edad", "curso"], recórrelo con forEach
-  //       y lee cada valor con corchetes: estudiante[clave].
-  // TODO: debajo, un <p> con la frase de estudiante.presentarse().
-  // TODO: console.log() del objeto entero.
+
+  const salida = document.querySelector("#salida1");
+  salida.textContent= "";
+
+  const ul =  document.createElement("ul");
+  ul.classList.add("list-group");
+
+  const claves = ["nombre", "apellidos", "edad", "curso"];
+  claves.forEach(function (clave) {
+  const li = document.createElement("li");  
+  li.classList.add("list-group-item");
+  li.textContent = clave + ": " + estudiante[clave];
+
+  ul.append(li);
+
+
+  });
+
+
+
+
 }
 
 function cumplirAnios() {
