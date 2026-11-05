@@ -408,12 +408,44 @@ function verPares() {
 }
 
 function verSuma() {
-  // TODO: con reduce(), la suma de todos los números (empieza en 0). Escríbela en #salida5.
+
+  const suma = numeros.reduce(function (total, n) {
+    return total + n;
+  }, 0);
+
+  escribir5([
+    "redice ->" + suma,
+    "numeros ->" + comoTexto(numeros)
+
+  ]);
+
+  console.log("Ejercicio 5: suma ->", suma);
+  
 }
 
 function verCadena() {
-  // TODO: los tres seguidos: los pares, después sus dobles y al final la suma de esos dobles.
-  //       Escribe en #salida5 una línea por paso.
+  const pares = numeros.filter(function (n) {
+    return n % 2 === 0;
+  });
+
+  const dobles = pares.map(function (n) {
+    return n * 2;
+
+  });
+
+  const suma = dobles.reduce(function (total, n) {
+    return total + n;
+  }, 0);
+
+  escribir5([
+    "1.filter ->" + comoTexto(pares),
+    "2.map ->" + comoTexto(dobles),
+    "3.reduce ->" + suma
+
+  ]);
+
+  console.log("Ejercicio 5: cadena ->", comoTexto(pares), comoTexto(dobles), suma);
+  
 }
 
 
