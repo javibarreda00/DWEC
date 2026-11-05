@@ -160,7 +160,7 @@ mostrarColores();   // pinta los tres colores de partida nada más cargar
 // Ejercicio 3 · Catálogo de productos
 // ============================================================
 
-// Puedes cambiar los productos por otros, pero deja al menos seis, con estas tres propiedades
+
 const productos = [
   { nombre: "Teclado mecánico", precio: 79.9, categoria: "Periféricos" },
   { nombre: "Ratón inalámbrico", precio: 24.5, categoria: "Periféricos" },
@@ -194,14 +194,22 @@ function pintarProductos(lista) {
 }
 
 function mostrarProductos() {
-  // TODO: pinta todos los productos con pintarProductos() y escribe en #mensaje3 cuántos hay.
+pintarProductos(productos);
+document.querySelector("#mensaje3").textContent = "Hay " + productos.length + " productos.";
+console.log("Ejercicio 3:todos ->", productos.length, "productos");
 }
 
 function ordenarPorPrecio() {
-  // TODO: haz una copia del array con [...productos] y ordénala con sort() de más barato a más caro.
-  //       sort necesita una función de comparación: function (a, b) { return ... }.
-  //       ¿Por qué una copia? Explícalo en el README.
-  // TODO: pinta la copia y escribe en #mensaje3 cómo están ordenados.
+  const copia = [...productos];
+  copia.sort(function (a,b) {
+    return a.precio - b.precio;
+
+
+  });
+
+  pintarProductos(copia);
+  document.querySelector("#mensaje3").textContent = "Ordenados de más baratos a más caro.";
+  console.log("Ejercicio 3: ordenados por precio ->", copia);
 }
 
 function filtrarCaros() {
