@@ -175,7 +175,7 @@ function pintarProductos(lista) {
   const cuerpo = document.querySelector("#tablaProductos");
   cuerpo.textContent = "";
 
-  lista.forEach(function (producto) {
+  lista.forEach(function(producto) {
     const fila = document.createElement("tr");
 
     const nombre = document.createElement("td");
@@ -213,7 +213,17 @@ function ordenarPorPrecio() {
 }
 
 function filtrarCaros() {
-  // TODO: con filter(), los productos de más de 50 €. Píntalos y escribe en #mensaje3 cuántos son.
+  const caros = productos.filter(function (producto) {
+  return producto.precio > 50;
+
+  });
+
+  pintarProductos(caros);
+  document.querySelector("#mensaje3").textContent = "Hay " + caros.length + " productos de más de 50 euros.";
+  console.log("Ejercicio 3: filtro (>50) ->", caros);
+
+
+
 }
 
 function buscarProducto() {
