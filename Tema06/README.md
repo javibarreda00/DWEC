@@ -1,17 +1,11 @@
 # Tarea 6 · Objetos y arrays
 
-**Autor:** [Tu nombre y apellidos] · Desarrollo Web en Entorno Cliente (DWEC) · 2.º DAW · Curso 2026-27
+**Autor:** Javier Barreda Zurera · Desarrollo Web en Entorno Cliente (DWEC) · 2.º DAW · Curso 2026-27
 
 > **Plantilla de la tarea 6.** Cómo usarla:
->
-> 1. Copia esta carpeta en tu repositorio de DWEC y cámbiale el nombre a `tema06`.
-> 2. `index.html` ya está maquetado: seis tarjetas, una por ejercicio. No cambies los `id` ni el `onclick` de los botones.
-> 3. `js/app.js` trae una función por botón con `TODO`. Ya están hechas `comoTexto()`, `pintarProductos()` y casi todo el ejercicio 2: úsalas de modelo.
-> 4. Todas las funciones con `function`: en esta tarea, sin funciones flecha.
-> 5. Sustituye las imágenes de `capturas/` por las tuyas, **con el mismo nombre**.
-> 6. Todo lo que va entre [corchetes] es un hueco: cámbialo por lo tuyo. Al terminar, borra este aviso.
 
-[Una o dos líneas: qué hay en esta carpeta y cómo se ve. Por ejemplo: abrir la carpeta en VS Code, pulsar **Go Live** y probar los botones con la consola abierta (F12).]
+
+La carpeta contiene una página con su navbar y 6 ejercicios sobre objetos y arrays, incluye mi ficha de estudiante con mis datos personales, colores un catálogo de productos, notas que hacen media y que van del 0 al 10, botones que hacen map filter suma y cadena en un array de números y ciudades que puedes filtrar o cortar con slice y splice.
 
 ## Capturas
 
@@ -19,41 +13,41 @@
 
 <img src="capturas/a-pagina.png" alt="La página recién cargada con mi nombre en la navbar" width="600">
 
-[Qué se ve nada más cargar: tu nombre, los colores, la tabla de productos y las ciudades.]
+Nada más cargar la página, se ve mi nombre en el navbar, la lista con los tres colores por defecto, la tabla con los seis productos y las ocho ciudades como badges.
 
 ### b) Ejercicios 1 y 2: la ficha y los colores
 
 <img src="capturas/b-ej1-ej2.png" alt="La ficha de estudiante y la lista de colores" width="600">
 
-[La ficha después de cumplir años y la lista de colores después de añadir y quitar alguno. Qué método has usado para cada cosa.]
+Al pulsar cumplir años se me ha sumado +1 a mi edad con estudiante.edad = estudiante.edad +1. En los colores he añadido amarillo y luego lo he eliminado con pop porque estaba el último en la lista.
 
 ### c) Ejercicio 3: el catálogo ordenado por precio
 
 ![La tabla de productos ordenada por precio](capturas/c-ej3-ordenado.png)
 
-[Cómo es tu función de comparación y por qué ordenas una copia.]
+La función que he usado es function(a,b) con return a.precio - b.precio, que deja primero el producto más barato y el más caro el último y ejecuto una copia de productos con ...productos porque sort modifica el array sobre el que se llama.
 
 ### d) Ejercicio 4: las notas y la media
 
 ![Las notas con su color y la media](capturas/d-ej4-notas.png)
 
-[Cinco notas como mínimo, aprobadas y suspensas, con su media.]
+He añadido 6 notas, las de 5 o más, aparece con su badge en verde, y las de menos de 5 (he añadido un 4,9 para confirmar la condición) aparecen con su badge en rojo, y debajo se ve la media calculada con reduce.
 
 ### e) Ejercicio 5: los tres métodos seguidos
 
 ![El resultado de filter, map y reduce encadenados](capturas/e-ej5-cadena.png)
 
-[Qué hace cada paso y qué número sale al final.]
+Al ser una cadena, se ejecutan seguido, filter se queda con los pares, map duplica los valores de filter, y reduce suma los valores duplicados de map.
 
 ### f) Ejercicio 6: después de splice y de buscar una ciudad
 
 ![Las ciudades después de splice y una búsqueda](capturas/f-ej6-splice.png)
 
-[Qué ciudades ha quitado splice, en qué posición ha quedado la que has buscado y por qué.]
+splice(2, 2) ha quitado Málaga y Córdoba, y el array se ha quedado con seis ciudades. He buscado «Jaén»: antes del splice indexOf daba 4 y después da 2, porque al quitar dos elementos anteriores los siguientes se renumeran. También he buscado málaga después del splice y da false, ya que había sido cortado previamente por el splice.
 
 ## Reflexión
 
-[De 5 a 8 líneas: ¿qué métodos de los que has usado cambian el array original y cuáles devuelven uno nuevo? Pon como ejemplo lo que pasa en el ejercicio 6 con slice y con splice, y explica por qué en el ejercicio 3 ordenas una copia.]
+Los métodos que cambian el array son el push, unshift, pop, shift, splice, sort y reverse. Los que devuelven un array nuevo sin tocar el original son slice, concat, map y filter; reduce devuelve un solo valor, y find, indexOf e includes solo buscan. En el ejercicio 6 se ve bien la diferencia: slice(2, 5) devuelve tres ciudades y ciudades sigue teniendo ocho, mientras que splice(2, 2) devuelve dos y deja el array con seis. Por eso en el ejercicio 3 ordeno una copia con ...productos y sort, que modifica el array sobre el que se llama, y si quisiera ordenar productos perdería su orden original y el botón «Todos» ya no mostraría el catálogo tal y como estaba antes.
 
 ## Fuentes
 
@@ -61,4 +55,4 @@
 
 ## Uso de IA
 
-[Si has usado IA: qué herramienta, para qué y qué hiciste después con su respuesta. Si no la has usado, borra este apartado.]
+He usado Claude (Anthropic) para que me ayudara a completar ciertas funciones que se me habían atraganado en varios ejercicios y no sabía como avanzar o no identificaba el error, en concreto las function de buscarCiudad y mostrarCiudades del ejercicio 6, la function de verCadena del ejercicio 5, y la funcion de verFicha del ejercicio 1. 
