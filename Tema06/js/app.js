@@ -46,7 +46,7 @@ const estudiante = {
 
   }
 
-};
+}; 
 
 function verFicha() {
 
@@ -71,17 +71,21 @@ function verFicha() {
   frase.classList.add("mt-2" , "fst-italic");
   frase.textContent = estudiante.presentarse();
 
+  salida.append(ul, frase);
+  console.log("Ejercicio 1: ficha ->", estudiante);
+
 
 
 }
 
 function cumplirAnios() {
-  // TODO: suma 1 a la edad del estudiante y vuelve a pintar la ficha (llama a verFicha()).
+  estudiante.edad = estudiante.edad + 1;
+  verFicha();
 }
 
 function quitarCurso() {
-  // TODO: borra la propiedad curso con delete y vuelve a pintar la ficha.
-  //       Fíjate en lo que sale ahora en el curso y explícalo en el README.
+ delete estudiante.curso;
+ verFicha();
 }
 
 
