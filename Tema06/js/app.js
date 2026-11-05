@@ -539,7 +539,7 @@ function buscarCiudad() {
     "indexOf(\"" + nombre + "\") → " + posicion
   ]);
   console.log("Ejercicio 6: buscar " + nombre + " → includes:", esta, "| indexOf:", posicion);
-.
+
 }
 
 mostrarCiudades();
