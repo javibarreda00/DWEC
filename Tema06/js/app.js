@@ -233,17 +233,30 @@ function buscarProducto() {
 
 
   if(texto === "") {
-    mensaje.textContent = "No se ha encontrado ningún producto con «" + texto + "».";
-    pintarProductos([]);
-    console.log("Ejercicio 3: find -> undefined");
-    return;
-
+   mensaje.textContent = "Escribe el nombre de un producto para encontrarlo.";
+   return;
 
 
   }
- pintarProductos([encontrado]);
- mensaje.textContent = "Primer producto encontrado:" + encontrado.nombre + ".";
- console.log("Ejercicio 3: find -> encontrado");
+
+  const encontrado = productos.find(function(producto) {
+    return producto.nombre.toLowerCase().includes(texto);
+
+
+});
+ 
+if (encontrado === undefined) {
+  mensaje.textContent = "No se ha encontrado ningún producto con «" + texto + "».";
+  pintarProductos([]);
+  console.log("Ejercicio 3: find -> undefined");
+  return;
+
+
+}
+
+pintarProductos([encontrado]);
+mensaje.textContent = "Primer producto encontrado: " + encontrado.nombre + ".";
+console.log("Ejercicio 3: find ->", encontrado);
 
 }
 
