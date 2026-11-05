@@ -31,9 +31,6 @@ function comoTexto(lista) {
 // Ejercicio 1 · Ficha de estudiante
 // ============================================================
 
-// TODO: completa el objeto literal con tus datos: nombre, apellidos, edad y curso.
-// TODO: añádele el método presentarse(), que devuelve una frase con this.nombre, this.apellidos, this.edad y this.curso.
-//       Por ejemplo: «Soy [nombre] [apellidos], tengo [edad] años y estudio [curso].»
 const estudiante = {
 
   nombre:"Javi",
@@ -133,8 +130,15 @@ function anadirColor() {
 }
 
 function quitarUltimo() {
-  // TODO: si la lista está vacía, avisa con avisar2() y no hagas nada más.
-  // TODO: si no, saca el último con pop(), vuelve a pintar la lista y di en la consola qué color ha salido.
+  if (colores.length === 0) {
+    avisar2("No quedan colores por quitar.");
+    return;
+  }
+
+  const salido = colores.pop();
+  document.querySelector("#aviso2").classList.add("d-none");
+  mostrarColores();
+  console.log("Ejercicio 2:pop -> ha salido" + salido + ". Quedan " + comoTexto(colores));
 }
 
 function quitarPrimero() {
