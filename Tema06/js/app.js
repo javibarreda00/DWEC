@@ -298,9 +298,31 @@ return true;
 };
 
 function mostrarNotas() {
-  // TODO: vacía #notas y pon un badge (<span class="badge">) por nota: verde (text-bg-success) si es de 5 o más,
-  //       rojo (text-bg-danger) si no.
-  // TODO: en #media, «Media de N notas: X» con dos decimales (toFixed(2)), o «Todavía no hay notas.».
+  const contenedor = document.querySelector("#notas");
+  contenedor.textContent = "";
+
+  alumno.notas.forEach(function (nota) {
+  const badge = document.createElement("span");
+  badge.classList.add("badge", "me-1");
+  if (nota >= 5) {
+    badge.classList.add("text-bg-success");
+  } else {
+    badge.classList.add("text-bg-danger");
+  }
+  badge.textContent = nota;
+  contenedor.append(badge);
+
+
+
+ });
+
+ const media = document.querySelector("#media");
+ if (alumno.notas.lenght === 0) {
+  media.textContent = "Aún no hay notas puestas";
+ } else{
+  media.textContent = "Media de " + alumno.notas.length + "notas: " + alumno.media().toFixed(2);
+ }
+ console.log("Ejercicio 4: notas ->", comoTexto(alumno.notas));
 }
 
 function anadirNota() {
