@@ -31,6 +31,7 @@
 
 ![El resultado de transformar y los dos contadores](capturas/c-ej3-ej4.png)
 
+Hola 
 [Qué hace transformar() por dentro y por qué cada contador lleva su propia cuenta.]
 
 ### d) Ejercicio 5: los alumnos
