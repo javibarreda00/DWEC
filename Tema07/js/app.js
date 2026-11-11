@@ -179,12 +179,13 @@ function buscarAntigua() {
 const numeros = [3, -1, 4, -1, 5, 9];
 document.querySelector("#numeros3").textContent = `const numeros = [${numeros.join(", ")}];`;
 
-
+//Hace a mano lo que hace map pero sin usarlo
+//lista es el array a recorrer, operación es la función(callback).
 function transformar(lista, operacion) {
-  const resultado = [];
+  const resultado = []; //array nuevo: la lista original no cambia.
 
-  for (const elemento of lista) {
-    resultado.push(operacion(elemento));
+  for (const elemento of lista) { //recorremos cada elemento de la lista.
+    resultado.push(operacion(elemento)); //llamamos al callback y guardamos lo que devuelve.
   }
 
   return resultado;
@@ -208,19 +209,22 @@ function mostrar3(nombre, resultado, conMap) {
   });
 }
 
-
+//Botón Doble
 function verDobles() {
+  //el callback es con una flecha: (n) => n * 2.
   const resultado = transformar(numeros, (n) => n * 2);
   mostrar3("dobles", resultado, numeros.map((n) => n * 2));
   console.log("Ejercicio 3: dobles →", resultado);
 }
 
+//Botón Cuadrado: igual que en la función verDobles, pero con el cuadrado de cada número.
 function verCuadrados() {
   const resultado = transformar(numeros, (n) => n ** 2);
   mostrar3("cuadrados", resultado, numeros.map((n) => n ** 2));
   console.log("Ejercicio 3: cuadrados → ", resultado);
 }
-
+//Botón absoluto, igual pero math.abs ya es una función.
+//Se pasa sin paréntesis
 function verAbsolutos() {
   const resultado = transformar(numeros, Math.abs);
   mostrar3("absolutos", resultado, numeros.map(Math.abs));
