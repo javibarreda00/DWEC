@@ -129,11 +129,9 @@ function verTitulos() {
 }
 
 function verLargas() {
-  const largas = peliculas.filter(function (pelicula) {
-    return pelicula.duracion > 120;
-  });
-  pintarLista("#salida2", largas.map(comoTexto));   // comoTexto ya es una función: se pasa sin paréntesis
-  document.querySelector("#mensaje2").textContent = `${largas.length} películas duran más de 2 horas.`;
+  const largas = peliculas.filter ((pelicula) => pelicula.duracion > 120); 
+    pintarLista("#salida2", largas.map(comoTexto));
+    document.querySelector("#mensaje2").textContent = `${largas.length} películas que duran más de 120 minutos.`;
   console.log("Ejercicio 2: filter →", largas);
 }
 
