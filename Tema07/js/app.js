@@ -143,13 +143,14 @@ function ordenarPorAnio() {
   }
 
 function verDuracionTotal() {
-  const minutos = peliculas.reduce(function (total, pelicula) {
-    return total + pelicula.duracion;
-  }, 0);
-  pintarLista("#salida2", [`${minutos} minutos de películas`]);
-  document.querySelector("#mensaje2").textContent = "La suma de las seis duraciones.";
-  console.log("Ejercicio 2: reduce →", minutos);
-}
+  const minutos = peliculas.reduce((total, pelicula) =>total + pelicula.duracion, 0);
+  pintarLista("#salida2" ,[`${minutos} minutos de películas`]);
+    document.querySelector("#mensaje2").textContent = "La suma total de las sesis duraciones.";
+   console.log("Ejercicio 2: reduce →", minutos);
+  }
+ 
+  
+
 
 function buscarAntigua() {
   // TODO: el callback nuevo, ya con flecha: con find(), la primera película anterior a 1990.
