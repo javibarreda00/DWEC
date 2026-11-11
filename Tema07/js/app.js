@@ -38,12 +38,13 @@ function pintarLista(selector, textos) {
 // Ejercicio 1 · Precio final
 // ============================================================
 
-// TODO: calcularPrecio(base, iva, descuento) devuelve el precio final con return. No lee ni pinta nada.
-//       iva vale 21 por defecto y descuento, 0 por defecto (parámetros por defecto).
-//       Primero se resta el descuento (un tanto por ciento de la base) y después se suma el IVA.
-//       Comprueba en la consola: calcularPrecio(100) tiene que dar 121.
+
+//Calcula el precio final y lo devuelve con return (no lee ni pinta nada).
+//iva vale 21 y descuento vale 0, son sus parámetros por defecto.
 function calcularPrecio(base, iva = 21, descuento = 0) {
+  //Primero se resta el descuento, que es un % del precio de base.
   const Descuento = base - base * descuento / 100;
+  //Luego se le suma el IVA y se devuelve el resultado.
   return Descuento * (1 + iva /100);
 
 }
@@ -52,26 +53,31 @@ function calcularPrecio(base, iva = 21, descuento = 0) {
 function formatearEuros(cantidad) {
   return cantidad.toFixed(2) + " €";
 }
-
+//Función del botón de Calcular: lee el formulario, valida y pinta el resultado.
 function mostrarPrecio() {
+  //Se leen los tre campos (value siempre es texto).
  const precioBase = document.querySelector("#base").value;
  const iva = Number(document.querySelector("#iva").value);
  const precioDescuento = document.querySelector("#descuento").value;
  const error = document.querySelector("#error1");
 
+ //Convertimos la base a número para poder compararla.
  const base = Number(precioBase);
+ //Si la base está vacía o es negativa mostramos el error y salimos con return.
  if (precioBase === "" || base < 0) {
-  error.classList.remove("d-none");
+  error.classList.remove("d-none"); //quitar d-none have visible el error
   return;
  }
 
- let precio;
- let descuento = 0;
+ let precio; //se guarda el precio final
+ let descuento = 0; //vale 0 si no hay descuento, ya que es opcional.
 
  if (precioDescuento === "") {
+  //Descuento vacío, pero se usa el 0 por defecto.
   precio = calcularPrecio(base, iva);
  } else {
   descuento = Number (precioDescuento);
+  //El descuento tiene que estar entre 0 y 100.
   if (descuento < 0 || descuento > 100) {
     error.classList.remove("d-none");
     return;
@@ -79,7 +85,7 @@ function mostrarPrecio() {
   precio = calcularPrecio(base, iva, descuento);
  }
 
- error.classList.add("d-none");
+ error.classList.add("d-none"); //ocultamos el error añadiendo el d-none.
  pintarLista("#salida1", [
  `Precio sin Iva: ${formatearEuros(base)}`,
  `Descuento: ${descuento} %`,
@@ -87,7 +93,7 @@ function mostrarPrecio() {
  `Precio final: ${formatearEuros(precio)}`
 
  ]);
-
+//Dejamos el rastro en la consola.
  console.log("Ejercicio 1: precio final: ", precio);
 
 }
