@@ -222,8 +222,9 @@ function verCuadrados() {
 }
 
 function verAbsolutos() {
-  // TODO: como verDobles(), con el valor absoluto (Math.abs). Pista: Math.abs ya es una función,
-  //       así que se puede pasar tal cual, sin paréntesis.
+  const resultado = transformar(numeros, Math.abs);
+  mostrar3("absolutos", resultado, numeros.map(Math.abs));
+  console.log("Ejercicio 3: absolutos → ", resultado);
 }
 
 
