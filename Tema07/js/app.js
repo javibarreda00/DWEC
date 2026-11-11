@@ -179,10 +179,15 @@ function buscarAntigua() {
 const numeros = [3, -1, 4, -1, 5, 9];
 document.querySelector("#numeros3").textContent = `const numeros = [${numeros.join(", ")}];`;
 
-// TODO: transformar(lista, operacion) hace a mano lo que hace map, sin usar map:
-//       recorre lista con for…of, llama a operacion con cada elemento, guarda lo que devuelve
-//       en un array nuevo y, al final, devuelve ese array.
+
 function transformar(lista, operacion) {
+  const resultado = [];
+
+  for (const elemento of lista) {
+    resultado.push(operacion(elemento));
+  }
+
+  return resultado;
 
 }
 
