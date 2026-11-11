@@ -54,12 +54,42 @@ function formatearEuros(cantidad) {
 }
 
 function mostrarPrecio() {
-  // TODO: lee #base, #iva y #descuento (value). El IVA conviértelo con Number().
-  // TODO: si la base está vacía o es negativa, error en #error1 (quítale "d-none") y no sigas.
-  // TODO: si el descuento está vacío, llama a calcularPrecio(base, iva), sin el tercer argumento, para que se
-  //       use el valor por defecto. Si no, comprueba que está entre 0 y 100 y pásaselo.
-  // TODO: oculta el error y pinta el desglose en #salida1 con pintarLista():
-  //       «Precio sin IVA: …», «Descuento: … %», «IVA: … %» y «Precio final: …» (con formatearEuros).
+ const precioBase = document.querySelector("#base").value;
+ const iva = Number(document.querySelector("#iva").value);
+ const precioDescuento = document.querySelector("#descuento").value;
+ const error = document.querySelector("#error1");
+
+ const base = Number(precioBase);
+ if (precioBase === "" || base < 0) {
+  error.classList.remove("d-none");
+  return;
+ }
+
+ let precio;
+ let descuento = 0;
+
+ if (precioDescuento === "") {
+  precio = calcularPrecio(base, iva);
+ } else {
+  descuento = Number (precioDescuento);
+  if (descuento < 0 || descuento > 100) {
+    error.classList.remove("d-none");
+    return;
+  }
+  precio = calcularPrecio(base, iva, descuento);
+ }
+
+ error.classList.add("d-none");
+ pintarLista("#salida1", [
+ `Precio sin Iva: ${formatearEuros(base)}`,
+ `Descuento: ${descuento} %`,
+ `Iva: ${iva} %`,
+ `Precio final: ${formatearEuros(precio)}`
+
+ ]);
+
+ console.log("Ejercicio 1: precio final: ", precio);
+
 }
 
 
