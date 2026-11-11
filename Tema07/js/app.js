@@ -1,25 +1,13 @@
-/*
-  Tarea 7 · DWEC · [Tu nombre y apellidos]
-  Funciones, flechas y clases.
 
-  Cómo usar esta plantilla:
-  · Hay una función por botón. Escribe tu código donde pone TODO y, cuando termines, borra el TODO.
-  · La regla de este tema:
-      - declaración, function nombre() { ... }, para las funciones con nombre, como las de los botones;
-      - FLECHA para todos los callbacks: forEach, map, filter, sort, reduce, find, some...;
-      - nunca una flecha como método: en las clases, la forma corta media() { ... }.
-  · Los resultados se pintan en la página como en los temas 5 y 6: createElement, textContent, classList y append.
-  · Cada función deja también su rastro en la consola con console.log().
-  · let y const, nunca var. Compara siempre con ===. Comillas rectas.
-*/
+  //Tarea 7 · DWEC · Javier Barreda Zurera
+ 
+
+
 
 console.log("app.js cargado");
 
 
-// ============================================================
-// Ayuda: pinta una lista de textos en un <ul class="list-group">
-// (ya está hecha, y su forEach ya lleva una flecha: es el modelo)
-// ============================================================
+
 
 function pintarLista(selector, textos) {
   const lista = document.querySelector(selector);
