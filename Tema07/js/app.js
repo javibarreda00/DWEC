@@ -153,11 +153,18 @@ function verDuracionTotal() {
 
 
 function buscarAntigua() {
-  // TODO: el callback nuevo, ya con flecha: con find(), la primera película anterior a 1990.
-  // TODO: find devuelve undefined si no hay ninguna: dilo en #mensaje2 y vacía la lista.
-  //       Si la encuentra, píntala con pintarLista("#salida2", [comoTexto(antigua)]).
-}
+  const antigua = peliculas.find((pelicula) => pelicula.anio < 1990);
 
+  if (antigua === undefined) {
+    document.querySelector("#mensaje2").textContent = "No hay ninguna película anterior a 1990";
+    pintarLista("#salida2", []);
+    console.log("Ejercicio 2: find → no hay ninguna");
+    return;
+  }
+    pintarLista("#salida2", [comoTexto(antigua)]);
+    document.querySelector("#mensaje2").textContent = " Película/s anterior/es a 1990.";
+    console.log("Ejercicio 2: find →", antigua);
+}
 
 // ============================================================
 // Ejercicio 3 · Tu propio callback
