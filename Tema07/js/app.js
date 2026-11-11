@@ -224,7 +224,7 @@ function verCuadrados() {
   console.log("Ejercicio 3: cuadrados → ", resultado);
 }
 //Botón absoluto, igual pero math.abs ya es una función.
-//Se pasa sin paréntesis
+//Se pasa sin paréntesis.
 function verAbsolutos() {
   const resultado = transformar(numeros, Math.abs);
   mostrar3("absolutos", resultado, numeros.map(Math.abs));
@@ -236,10 +236,15 @@ function verAbsolutos() {
 // Ejercicio 4 · Dos contadores con closure
 // ============================================================
 
-// TODO: crearContador(paso) guarda una variable cuenta que empieza en 0 y DEVUELVE una función.
-//       Cada vez que se llama a esa función, suma paso a cuenta y devuelve el valor nuevo.
-//       paso vale 1 por defecto.
-function crearContador(paso) {
+
+function crearContador(paso = 1) {
+  let cuenta = 0;
+
+  return function () {
+
+    cuenta += paso;
+    return cuenta;
+  };
 
 }
 
