@@ -423,6 +423,10 @@ pintarAlumnos();
 
 
 function diasHasta(fecha) {
+  const hoy = new Date();
+  hoy.setHours(0,0,0,0);
+  const milisegundosDia = 1000 * 60 * 60 * 24;
+  return Math.round((fecha - hoy) / milisegundosDia);
 
 }
 
@@ -438,9 +442,24 @@ function mostrarDias() {
   // Ya está hecho: de "2026-12-25" a un Date. Fíjate en el mes - 1: el mes va de 0 a 11
   const [anio, mes, dia] = valor.split("-").map(Number);
   const fecha = new Date(anio, mes - 1, dia);
+  const dias = diasHasta(fecha);
+  
+  const nombreFecha = fecha.toLocaleDateString("es-ES" , {
+    weekday : "long",
+    day: "numeric",
+    month: "long",
+    year: "numeric"
+  
+  });
 
-  // TODO: con diasHasta(fecha), escribe en #salida6a «Faltan N días: será viernes, 25 de diciembre de 2026.»,
-  //       «Es hoy…» o «Fue hace N días…». El nombre de la fecha, con toLocaleDateString("es-ES", {…}).
+  if (dias > 0) {
+    salida.textContent = `Faltan ${dias} días: será ${nombreFecha}.`;
+  } else if (dias === 0) {
+    salida.textContent = `Es hoy: ${nombreFecha}.`;
+  } else {
+    salida.textContent = `Fue hace ${Math.abs(dias)} días: fue el ${nombreFecha}.`;
+  }
+  console.log("Ejercicio 6: días hasta la fecha →", dias);
 }
 
 // TODO: iniciales(nombreCompleto) devuelve las iniciales en mayúsculas: «lucía martín ortega» → «LMO».
