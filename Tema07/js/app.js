@@ -136,13 +136,11 @@ function verLargas() {
 }
 
 function ordenarPorAnio() {
-  const ordenadas = [...peliculas].sort(function (a, b) {   // una copia: sort cambia el original
-    return a.anio - b.anio;
-  });
-  pintarLista("#salida2", ordenadas.map(comoTexto));
-  document.querySelector("#mensaje2").textContent = "De la más antigua a la más reciente.";
-  console.log("Ejercicio 2: sort →", ordenadas);
-}
+  const ordenadas = [...peliculas].sort((a, b) => a.anio - b.anio); // una copia: sort cambia el original
+    pintarLista("#salida2", ordenadas.map(comoTexto));
+    document.querySelector("#mensaje2").textContent = "De la más antigua a la más reciente";
+    console.log("Ejercicio 2: sort →", ordenadas);
+  }
 
 function verDuracionTotal() {
   const minutos = peliculas.reduce(function (total, pelicula) {
