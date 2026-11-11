@@ -462,20 +462,34 @@ function mostrarDias() {
   console.log("Ejercicio 6: días hasta la fecha →", dias);
 }
 
-// TODO: iniciales(nombreCompleto) devuelve las iniciales en mayúsculas: «lucía martín ortega» → «LMO».
-//       Encadena trim, split(" "), filter (para quitar las palabras vacías si hay espacios dobles),
-//       map (la primera letra de cada palabra, en mayúscula) y join("").
+
 function iniciales(nombreCompleto) {
+  return nombreCompleto
+  .trim()
+  .split(" ")
+  .filter((palabra) => palabra !== "")
+  .map((palabra) => palabra.slice(0,1).toUpperCase())
+  .join(" ");
 
 }
 
-// TODO: crearUsuario(nombreCompleto) devuelve las iniciales en minúsculas y tres cifras al azar, de 000 a 999:
-//       «lmo042». Pista: Math.random, Math.floor y padStart(3, "0").
+
 function crearUsuario(nombreCompleto) {
+  const numero = Math.floor(Math.random() * 1000);
+  const cifras = String(numero).padStart(3, "0");
+  return iniciales(nombreCompleto).toLowerCase() + cifras;
 
 }
 
 function mostrarIniciales() {
-  // TODO: lee #nombre6. Si está vacío, avisa en #salida6b.
-  // TODO: si no, escribe en #salida6b «Iniciales: LMO · usuario: lmo042».
+  const nombre = document.querySelector("#nombre6").value;
+  const salida = document.querySelector("#salida6b");
+
+  if (nombre.trim() === "") {
+    salida.textContent = "Escribe un nombre completo.";
+    return;
+  }
+
+  salida.textContent =  `Iniciales: ${iniciales(nombre)} · usuario: ${crearUsuario(nombre)}`;
+  console.log("Ejercicio 6: iniciales →", iniciales(nombre));
 }
