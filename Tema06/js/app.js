@@ -31,9 +31,6 @@ function comoTexto(lista) {
 // Ejercicio 1 · Ficha de estudiante
 // ============================================================
 
-// TODO: completa el objeto literal con tus datos: nombre, apellidos, edad y curso.
-// TODO: añádele el método presentarse(), que devuelve una frase con this.nombre, this.apellidos, this.edad y this.curso.
-//       Por ejemplo: «Soy [nombre] [apellidos], tengo [edad] años y estudio [curso].»
 const estudiante = {
 
   nombre:"Javi",
@@ -42,28 +39,50 @@ const estudiante = {
   curso:"2ºDAW",
   presentarse: function() {
    return "Soy " + this.nombre + " " + this.apellidos +
-   ", tengo " + this.edad + " años y estoy estudiando " + this.curso + ".";
+   ", tengo " + this.edad + " años y estudio " + this.curso + ".";
 
   }
 
-};
+}; 
 
 function verFicha() {
-  // TODO: vacía #salida1 (textContent = "").
-  // TODO: crea un <ul class="list-group"> con un <li class="list-group-item"> por propiedad: «nombre: ...», «edad: ...».
-  //       Pista: guarda las claves en un array, ["nombre", "apellidos", "edad", "curso"], recórrelo con forEach
-  //       y lee cada valor con corchetes: estudiante[clave].
-  // TODO: debajo, un <p> con la frase de estudiante.presentarse().
-  // TODO: console.log() del objeto entero.
+
+  const salida = document.querySelector("#salida1");
+  salida.textContent= "";
+
+  const ul =  document.createElement("ul");
+  ul.classList.add("list-group");
+
+  const claves = ["nombre", "apellidos", "edad", "curso"];
+  claves.forEach(function (clave) {
+  const li = document.createElement("li");  
+  li.classList.add("list-group-item");
+  li.textContent = clave + ": " + estudiante[clave];
+
+  ul.append(li);
+
+
+  });
+
+  const frase = document.createElement("p");
+  frase.classList.add("mt-2" , "fst-italic");
+  frase.textContent = estudiante.presentarse();
+
+  salida.append(ul, frase);
+  console.log("Ejercicio 1: ficha ->", estudiante);
+
+
+
 }
 
 function cumplirAnios() {
-  // TODO: suma 1 a la edad del estudiante y vuelve a pintar la ficha (llama a verFicha()).
+  estudiante.edad = estudiante.edad + 1;
+  verFicha();
 }
 
 function quitarCurso() {
-  // TODO: borra la propiedad curso con delete y vuelve a pintar la ficha.
-  //       Fíjate en lo que sale ahora en el curso y explícalo en el README.
+ delete estudiante.curso;
+ verFicha();
 }
 
 
@@ -111,12 +130,27 @@ function anadirColor() {
 }
 
 function quitarUltimo() {
-  // TODO: si la lista está vacía, avisa con avisar2() y no hagas nada más.
-  // TODO: si no, saca el último con pop(), vuelve a pintar la lista y di en la consola qué color ha salido.
+  if (colores.length === 0) {
+    avisar2("No quedan colores por quitar.");
+    return;
+  }
+
+  const salido = colores.pop();
+  document.querySelector("#aviso2").classList.add("d-none");
+  mostrarColores();
+  console.log("Ejercicio 2:pop -> ha salido" + salido + ". Quedan " + comoTexto(colores));
 }
 
 function quitarPrimero() {
-  // TODO: lo mismo que quitarUltimo(), pero sacando el primero con shift().
+   if (colores.length === 0) {
+    avisar2("No quedan colores por quitar.");
+    return;
+  }
+
+   const salido = colores.shift();
+  document.querySelector("#aviso2").classList.add("d-none");
+  mostrarColores();
+  console.log("Ejercicio 2:pop -> ha salido" + salido + ". Quedan " + comoTexto(colores));
 }
 
 mostrarColores();   // pinta los tres colores de partida nada más cargar
@@ -126,7 +160,7 @@ mostrarColores();   // pinta los tres colores de partida nada más cargar
 // Ejercicio 3 · Catálogo de productos
 // ============================================================
 
-// Puedes cambiar los productos por otros, pero deja al menos seis, con estas tres propiedades
+
 const productos = [
   { nombre: "Teclado mecánico", precio: 79.9, categoria: "Periféricos" },
   { nombre: "Ratón inalámbrico", precio: 24.5, categoria: "Periféricos" },
@@ -141,7 +175,7 @@ function pintarProductos(lista) {
   const cuerpo = document.querySelector("#tablaProductos");
   cuerpo.textContent = "";
 
-  lista.forEach(function (producto) {
+  lista.forEach(function(producto) {
     const fila = document.createElement("tr");
 
     const nombre = document.createElement("td");
@@ -160,25 +194,70 @@ function pintarProductos(lista) {
 }
 
 function mostrarProductos() {
-  // TODO: pinta todos los productos con pintarProductos() y escribe en #mensaje3 cuántos hay.
+pintarProductos(productos);
+document.querySelector("#mensaje3").textContent = "Hay " + productos.length + " productos.";
+console.log("Ejercicio 3:todos ->", productos.length, "productos");
 }
 
 function ordenarPorPrecio() {
-  // TODO: haz una copia del array con [...productos] y ordénala con sort() de más barato a más caro.
-  //       sort necesita una función de comparación: function (a, b) { return ... }.
-  //       ¿Por qué una copia? Explícalo en el README.
-  // TODO: pinta la copia y escribe en #mensaje3 cómo están ordenados.
+  const copia = [...productos];
+  copia.sort(function (a,b) {
+    return a.precio - b.precio;
+
+
+  });
+
+  pintarProductos(copia);
+  document.querySelector("#mensaje3").textContent = "Ordenados de más baratos a más caro.";
+  console.log("Ejercicio 3: ordenados por precio ->", copia);
 }
 
 function filtrarCaros() {
-  // TODO: con filter(), los productos de más de 50 €. Píntalos y escribe en #mensaje3 cuántos son.
+  const caros = productos.filter(function (producto) {
+  return producto.precio > 50;
+
+  });
+
+  pintarProductos(caros);
+  document.querySelector("#mensaje3").textContent = "Hay " + caros.length + " productos de más de 50 euros.";
+  console.log("Ejercicio 3: filtro (>50) ->", caros);
+
+
+
 }
 
 function buscarProducto() {
-  // TODO: lee #buscarProducto (value, trim y toLowerCase). Si está vacío, avisa en #mensaje3.
-  // TODO: con find(), el primer producto cuyo nombre en minúsculas contenga ese texto (includes).
-  // TODO: find devuelve undefined si no encuentra nada: en ese caso, dilo en #mensaje3 y vacía la tabla.
-  //       Si lo encuentra, píntalo solo a él: pintarProductos([encontrado]).
+
+  const mensaje = document.querySelector("#mensaje3");
+  const texto = document.querySelector("#buscarProducto").value.trim().toLowerCase();
+
+
+  if(texto === "") {
+   mensaje.textContent = "Escribe el nombre de un producto para encontrarlo.";
+   return;
+
+
+  }
+
+  const encontrado = productos.find(function(producto) {
+    return producto.nombre.toLowerCase().includes(texto);
+
+
+});
+ 
+if (encontrado === undefined) {
+  mensaje.textContent = "No se ha encontrado ningún producto con «" + texto + "».";
+  pintarProductos([]);
+  console.log("Ejercicio 3: find -> undefined");
+  return;
+
+
+}
+
+pintarProductos([encontrado]);
+mensaje.textContent = "Primer producto encontrado: " + encontrado.nombre + ".";
+console.log("Ejercicio 3: find ->", encontrado);
+
 }
 
 mostrarProductos();   // la tabla completa nada más cargar
@@ -189,29 +268,92 @@ mostrarProductos();   // la tabla completa nada más cargar
 // ============================================================
 
 const alumno = {
-  nombre: "[Tu nombre]",
-  notas: []
-  // TODO: método anadirNota(nota): si la nota no es un número (Number.isNaN) o no está entre 0 y 10, devuelve false;
-  //       si es válida, la añade a this.notas con push y devuelve true.
-  // TODO: método media(): si no hay notas devuelve 0; si hay, la suma (con reduce) dividida entre el número de notas.
-  //       Recuerda la coma entre una propiedad y la siguiente.
+  nombre: "Javier Barreda Zurera",
+  notas: [],
+
+  anadirNota: function (nota) {
+  if (Number.isNaN(nota) || nota < 0 || nota > 10) {
+    return false;
+
+
+
+
+  }
+
+this.notas.push(nota);
+return true;
+
+  },
+
+  media: function () {
+    if (this.notas.length === 0) {
+      return 0;
+    }
+    const suma = this.notas.reduce(function (total, nota) {
+      return total + nota;
+    }, 0);
+    return suma / this.notas.length;
+  }
+  
 };
 
 function mostrarNotas() {
-  // TODO: vacía #notas y pon un badge (<span class="badge">) por nota: verde (text-bg-success) si es de 5 o más,
-  //       rojo (text-bg-danger) si no.
-  // TODO: en #media, «Media de N notas: X» con dos decimales (toFixed(2)), o «Todavía no hay notas.».
+  const contenedor = document.querySelector("#notas");
+  contenedor.textContent = "";
+
+  alumno.notas.forEach(function (nota) {
+  const badge = document.createElement("span");
+  badge.classList.add("badge", "me-1");
+  if (nota >= 5) {
+    badge.classList.add("text-bg-success");
+  } else {
+    badge.classList.add("text-bg-danger");
+  }
+  badge.textContent = nota;
+  contenedor.append(badge);
+
+
+
+ });
+
+ const media = document.querySelector("#media");
+ if (alumno.notas.lenght === 0) {
+  media.textContent = "Aún no hay notas puestas";
+ } else{
+  media.textContent = "Media de " + alumno.notas.length + "notas: " + alumno.media().toFixed(2);
+ }
+ console.log("Ejercicio 4: notas ->", comoTexto(alumno.notas));
 }
 
 function anadirNota() {
-  // TODO: si #nota está vacía, muestra un error en #error4 (quítale "d-none").
-  //       Ojo: Number("") vale 0, así que esta comprobación va antes de convertir.
-  // TODO: convierte el valor con Number() y llama a alumno.anadirNota(). Si devuelve false, muestra el error.
-  // TODO: si ha ido bien, oculta el error, vacía la casilla y llama a mostrarNotas().
+  const casilla = document.querySelector("#nota");
+  const error = document.querySelector("#error4");
+  const texto = casilla.value.trim();
+
+  if (texto === "") {
+    error.textContent = "Escribe una nota antes de pulsar <<Añadir nota>>.";
+    error.classList.remove("d-none");
+    return;
+
+
+  }
+
+  const valida = alumno.anadirNota(Number(texto));
+  if (valida === false) {
+    error.textContent = "La nota tiene que ser un número entre 0 y 10";
+    error.classList.remove("d-none");
+    return;
+  }
+  
+  error.classList.add("d-none");
+  casilla.value = "";
+  mostrarNotas();
 }
 
 function borrarNotas() {
-  // TODO: deja alumno.notas vacío y vuelve a pintar.
+  alumno.notas = [];
+  document.querySelector("#error4").classList.add("d-none");
+  mostrarNotas();
 }
 
 mostrarNotas();
@@ -223,22 +365,87 @@ mostrarNotas();
 
 const numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
+function escribir5(lineas) {
+  const salida = document.querySelector("#salida5");
+  salida.textContent = "";
+
+  lineas.forEach(function (linea) {
+    const p = document.createElement("p");
+    p.classList.add("mb-1");
+    p.textContent = linea;
+    salida.append(p);
+
+  });
+}
+
 function verDobles() {
-  // TODO: con map(), un array nuevo con el doble de cada número.
-  // TODO: escribe en #salida5 el resultado y, debajo, numeros (para que se vea que no ha cambiado).
+  const dobles = numeros.map(function (n) {
+    return n * 2;
+  });
+
+  escribir5([
+    "map ->" + comoTexto(dobles),
+    "numeros ->" + comoTexto(numeros)
+
+  ]);
+
+  console.log("Ejercicio 5: dobles ->", comoTexto(dobles));
+  
 }
 
 function verPares() {
-  // TODO: con filter(), los números pares (n % 2 === 0). Escríbelos en #salida5 como en verDobles().
+ const pares = numeros.filter(function (n) {
+    return n % 2 === 0;
+  });
+
+  escribir5([
+    "filter ->" + comoTexto(pares),
+    "numeros ->" + comoTexto(numeros)
+
+  ]);
+
+  console.log("Ejercicio 5: pares ->", comoTexto(pares));
 }
 
 function verSuma() {
-  // TODO: con reduce(), la suma de todos los números (empieza en 0). Escríbela en #salida5.
+
+  const suma = numeros.reduce(function (total, n) {
+    return total + n;
+  }, 0);
+
+  escribir5([
+    "redice ->" + suma,
+    "numeros ->" + comoTexto(numeros)
+
+  ]);
+
+  console.log("Ejercicio 5: suma ->", suma);
+  
 }
 
 function verCadena() {
-  // TODO: los tres seguidos: los pares, después sus dobles y al final la suma de esos dobles.
-  //       Escribe en #salida5 una línea por paso.
+  const pares = numeros.filter(function (n) {
+    return n % 2 === 0;
+  });
+
+  const dobles = pares.map(function (n) {
+    return n * 2;
+
+  });
+
+  const suma = dobles.reduce(function (total, n) {
+    return total + n;
+  }, 0);
+
+  escribir5([
+    "1.filter ->" + comoTexto(pares),
+    "2.map ->" + comoTexto(dobles),
+    "3.reduce ->" + suma
+
+  ]);
+
+  console.log("Ejercicio 5: cadena ->", comoTexto(pares), comoTexto(dobles), suma);
+  
 }
 
 
@@ -247,29 +454,92 @@ function verCadena() {
 // ============================================================
 
 const ciudadesOriginal = ["Granada", "Sevilla", "Málaga", "Córdoba", "Jaén", "Almería", "Cádiz", "Huelva"];
-let ciudades = [...ciudadesOriginal];   // una copia: splice cambia ciudades y así podemos restaurarla
+let ciudades = [...ciudadesOriginal];  // una copia: splice cambia ciudades y así podemos restaurarla
+
+function escribir6(lineas){
+  const salida = document.querySelector("#salida6");
+  salida.textContent = "";
+
+  lineas.forEach(function (linea) {
+    const p = document.createElement("P");
+    p.classList.add("mb-1");
+    p.textContent = linea;
+    salida.append(p);
+
+
+
+
+  });
+}
+
+
 
 function mostrarCiudades() {
-  // TODO: vacía #ciudades y pon un badge por ciudad con su posición: «0 · Granada», «1 · Sevilla»...
-  //       Pista: forEach le pasa a tu función dos datos: function (ciudad, posicion) { ... }.
+  const contenedor = document.querySelector("#ciudades");
+  contenedor.textContent = "";
+
+  ciudades.forEach(function (ciudad, posicion) {
+    const badge = document.createElement("span");
+    badge.classList.add("badge", "text-bg-light", "border", "me-1");
+    badge.textContent = posicion + " . " + ciudad;
+    contenedor.append(badge);
+
+
+
+  });
 }
 
 function verSlice() {
-  // TODO: guarda ciudades.slice(2, 5) y escribe en #salida6 qué devuelve y cuántas ciudades siguen en el array.
+  const trozo = ciudades.slice(2, 5);
+
+  escribir6([
+    "slice(2, 5) devuelve " + comoTexto(trozo),
+    "ciudades sigue teniendo " + ciudades.length + " elementos : nada ha cambiado."
+  ]);
+  console.log("Ejercicio 6: slice ->", comoTexto(trozo), "ciudades:", ciudades.length);
 }
 
 function hacerSplice() {
-  // TODO: si quedan menos de 3 ciudades, avisa en #salida6 de que hay que restaurar y no hagas nada más.
-  // TODO: si no, ciudades.splice(2, 2): escribe en #salida6 qué devuelve y cuántas quedan, y vuelve a pintar.
+  if (ciudades.length < 3) {
+    escribir6(["Quedan pocas ciudades: pulsa <<Restaurar>> para recuperarlas."]);
+    return;
+  }
+
+  const quitadas = ciudades.splice(2, 2);
+
+  escribir6([
+    "splice(2, 2) devuelve" + comoTexto(quitadas),
+    "ciudades ahora tiene " + ciudades.length + " elementos: sí ha cambiado."
+  ]);
+  mostrarCiudades();
+  console.log("Ejercicio 6: splice ->", comoTexto(quitadas), "ciudades:", comoTexto(ciudades));
 }
 
 function restaurarCiudades() {
-  // TODO: vuelve a copiar ciudadesOriginal en ciudades y pinta.
+  ciudades = [...ciudadesOriginal];
+  mostrarCiudades();
+  escribir6(["Ciudades restauradas: vuelven a un total de " + ciudades.length + "."]);
+  console.log("Ejercicio 6: restaurar ->", comoTexto(ciudades));
+  
 }
 
 function buscarCiudad() {
-  // TODO: lee #buscarCiudad (value y trim). Si está vacío, avisa.
-  // TODO: escribe en #salida6 lo que dan includes() e indexOf() con ese nombre. Si no está, indexOf da -1.
+   const nombre = document.querySelector("#buscarCiudad").value.trim();
+ 
+  if (nombre === "") {
+    escribir6(["Escribe el nombre de una ciudad para buscarla."]);
+    return;
+  }
+ 
+  const esta = ciudades.includes(nombre);
+  const posicion = ciudades.indexOf(nombre);   // -1 si no está
+ 
+  escribir6([
+    "includes(\"" + nombre + "\") → " + esta,
+    "indexOf(\"" + nombre + "\") → " + posicion
+  ]);
+  console.log("Ejercicio 6: buscar " + nombre + " → includes:", esta, "| indexOf:", posicion);
+
 }
 
 mostrarCiudades();
