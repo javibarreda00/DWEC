@@ -421,15 +421,15 @@ pintarAlumnos();
 // Ejercicio 6 · Fechas y textos
 // ============================================================
 
-
+//Devuelve cuántos días faltan desde hoy hasta fecha.
 function diasHasta(fecha) {
-  const hoy = new Date();
-  hoy.setHours(0,0,0,0);
-  const milisegundosDia = 1000 * 60 * 60 * 24;
-  return Math.round((fecha - hoy) / milisegundosDia);
+  const hoy = new Date(); //ahora mismo.
+  hoy.setHours(0,0,0,0); // lo ponemos  a medianoche.
+  const milisegundosDia = 1000 * 60 * 60 * 24; //los milisegundos que tiene un dia.
+  return Math.round((fecha - hoy) / milisegundosDia); //la resta de milisegundos, no sale entero así que redondeamos con Math.round.
 
 }
-
+ //Botón Calcular de la tarjeta Fechas
 function mostrarDias() {
   const valor = document.querySelector("#fecha6").value;        // "2026-12-25", o "" si está vacía
   const salida = document.querySelector("#salida6a");
@@ -443,7 +443,7 @@ function mostrarDias() {
   const [anio, mes, dia] = valor.split("-").map(Number);
   const fecha = new Date(anio, mes - 1, dia);
   const dias = diasHasta(fecha);
-  
+  // El nombre de la fecha en español
   const nombreFecha = fecha.toLocaleDateString("es-ES" , {
     weekday : "long",
     day: "numeric",
@@ -451,7 +451,7 @@ function mostrarDias() {
     year: "numeric"
   
   });
-
+  //Según el resultado: faltan días, es hoy o ya pasó.
   if (dias > 0) {
     salida.textContent = `Faltan ${dias} días: será ${nombreFecha}.`;
   } else if (dias === 0) {
@@ -462,29 +462,29 @@ function mostrarDias() {
   console.log("Ejercicio 6: días hasta la fecha →", dias);
 }
 
-
+//Devuelve las iniciales en mayúsculas
 function iniciales(nombreCompleto) {
   return nombreCompleto
-  .trim()
-  .split(" ")
-  .filter((palabra) => palabra !== "")
-  .map((palabra) => palabra.slice(0,1).toUpperCase())
-  .join(" ");
+  .trim() //quita los espacios de los extremos.
+  .split(" ") //separa en palabras.
+  .filter((palabra) => palabra !== "") //quita las palabras vacías
+  .map((palabra) => palabra.slice(0,1).toUpperCase()) //primera letra de cada palabra en mayúscula.
+  .join(" "); //une las letras en un solo texto.
 
 }
 
-
+//Devuelve las iniciales en minúsculas y tres cifras al azar.
 function crearUsuario(nombreCompleto) {
   const numero = Math.floor(Math.random() * 1000);
   const cifras = String(numero).padStart(3, "0");
   return iniciales(nombreCompleto).toLowerCase() + cifras;
 
 }
-
+//Botón iniciales de la tarjeta Textos.
 function mostrarIniciales() {
   const nombre = document.querySelector("#nombre6").value;
   const salida = document.querySelector("#salida6b");
-
+   //Si está vacío, avisamos y salimos.
   if (nombre.trim() === "") {
     salida.textContent = "Escribe un nombre completo.";
     return;
