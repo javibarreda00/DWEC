@@ -117,11 +117,11 @@ function comoTexto(pelicula) {
   return `${pelicula.titulo} (${pelicula.anio}) · ${pelicula.duracion} min`;
 }
 
-// Las cuatro funciones siguientes ya funcionan, pero sus callbacks están escritos con function, como en el tema 6.
-// TODO: pasa a flecha los cuatro callbacks (map, filter, sort y reduce). Si el cuerpo es solo una expresión,
-//       sin llaves ni return. Comprueba después que cada botón sigue dando lo mismo.
+
 
 function verTitulos() {
+  //map crea un array nuevo con el título de cada peli.
+  //usamos callback con flecha
   const titulos = peliculas.map((pelicula) => pelicula.titulo);
     pintarLista("#salida2", titulos);
   document.querySelector("#mensaje2").textContent = `${titulos.length} títulos.`;
@@ -129,13 +129,16 @@ function verTitulos() {
 }
 
 function verLargas() {
+  //filter se queda solo con las películas que el callback devuelva true
   const largas = peliculas.filter ((pelicula) => pelicula.duracion > 120); 
+  //comoTexto ya es una función, se pasa sin parentésis
     pintarLista("#salida2", largas.map(comoTexto));
     document.querySelector("#mensaje2").textContent = `${largas.length} películas que duran más de 120 minutos.`;
   console.log("Ejercicio 2: filter →", largas);
 }
 
 function ordenarPorAnio() {
+  //[...peliculas] hace una copia, y sort cambia el array original.
   const ordenadas = [...peliculas].sort((a, b) => a.anio - b.anio); // una copia: sort cambia el original
     pintarLista("#salida2", ordenadas.map(comoTexto));
     document.querySelector("#mensaje2").textContent = "De la más antigua a la más reciente";
@@ -143,6 +146,7 @@ function ordenarPorAnio() {
   }
 
 function verDuracionTotal() {
+  //reduce va acumulando: total empieza en 0 y suma cada duración.
   const minutos = peliculas.reduce((total, pelicula) =>total + pelicula.duracion, 0);
   pintarLista("#salida2" ,[`${minutos} minutos de películas`]);
     document.querySelector("#mensaje2").textContent = "La suma total de las sesis duraciones.";
@@ -153,14 +157,16 @@ function verDuracionTotal() {
 
 
 function buscarAntigua() {
+  //find devuelve la primera película que cumple la condición, o undefined si no hay ninguna.
   const antigua = peliculas.find((pelicula) => pelicula.anio < 1990);
 
   if (antigua === undefined) {
     document.querySelector("#mensaje2").textContent = "No hay ninguna película anterior a 1990";
-    pintarLista("#salida2", []);
+    pintarLista("#salida2", []); //con una lista vacía, pintarLista deja el <ul> sin elementos.
     console.log("Ejercicio 2: find → no hay ninguna");
     return;
   }
+    //se pinta si la ha encontrado.
     pintarLista("#salida2", [comoTexto(antigua)]);
     document.querySelector("#mensaje2").textContent = " Película/s anterior/es a 1990.";
     console.log("Ejercicio 2: find →", antigua);
