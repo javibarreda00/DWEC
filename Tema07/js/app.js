@@ -236,12 +236,13 @@ function verAbsolutos() {
 // Ejercicio 4 · Dos contadores con closure
 // ============================================================
 
-
+//Crear un contador. paso vale 1 por defecto
 function crearContador(paso = 1) {
-  let cuenta = 0;
+  let cuenta = 0; //vivde dentro de crearContador
 
+  //Devolvemos una función (closure con return). Recurda paso y ceunta.
+  
   return function () {
-
     cuenta += paso;
     return cuenta;
   };
@@ -258,6 +259,7 @@ function sumarUno() {
   console.log("Ejercicio 4: de 1 en 1 →", valor);
 }
 
+//Igual que el modelo, pero con #cuenta5 y contadordeCinco
 function sumarCinco() {
   const valor = contarDeCinco();
   document.querySelector("#cuenta5").textContent = valor;
