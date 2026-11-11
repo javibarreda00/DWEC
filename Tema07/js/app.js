@@ -271,45 +271,48 @@ function sumarCinco() {
 // Ejercicio 5 · Clases
 // ============================================================
 
+//Clase madre: un alumno con nombre, curso y una lista de notas.
 class Alumno {
   constructor(nombre, curso) {
     this.nombre = nombre;
     this.curso = curso;
-    this.notas = [];
+    this.notas = []; //el alumno empieza sin notas.
   }
-
+ // Guarda la nota si es válida y devuelve true, si no devuelve false sin guardarla.
   anadirNota(nota) {
     if (!Number.isFinite(nota) || nota < 0 || nota > 10) {
-      return false;
+      return false;  //false si el número no está entre 0 y 10.
     }
     this.notas.push(nota);
     return true;
   }
+  //Devuelve la nota media (0 si no hay notas).
   media() {
     if(this.notas.length === 0) {
       return 0;
     }
+    //reduce suma todas las notas que hay y se divide entre cuantas hay.
     return this.notas.reduce((total, nota) => total + nota, 0) /this.notas.length;
   }
-
+  //Devuelve una frase por defecto.
   presentarse() {
     return `${this.nombre}, de ${this.curso}`;
   }
 }
-
+//Clase hija: alumno en prácticas (FCT) y hereda todo lo de alumno.
 class AlumnoFCT extends Alumno {
   constructor(nombre, curso, empresa) {
-    super(nombre, curso);
-    this.empresa = empresa;
+    super(nombre, curso); //el constructor de clase padre alumno.
+    this.empresa = empresa; //constructor propio de esta clase.
   }
-
+  //Sustituye al de Alumno, pero aprovecha su frase con super.presentarse()
   presentarse() {
     return `${super.presentarse()}, en prácticas en ${this.empresa}`;
   }
 }
-
+//Lista donde se guardasn los alumnos
 const alumnos = [];
-
+//Dos alumnos de partida, uno de cada clase, con al menos dos notas cada uno.
 const alumno1 = new Alumno("Javier Barreda Zurera", "2.º DAW");
 alumno1.anadirNota(7);
 alumno1.anadirNota(8);
@@ -361,50 +364,53 @@ function pintarAlumnos() {
 
   document.querySelector("#totalAlumnos").textContent = alumnos.length;
 }
-
+//Botón Crear: lee el formulario, valida y añade un alumno nuevo.
 function crearAlumno() {
+  //quitamos los espacios en blanco de los extremos con trim.
   const nombre = document.querySelector("#nombre5").value.trim();
   const curso = document.querySelector("#curso5").value.trim();
   const empresa = document.querySelector("#empresa5").value.trim();
   const notasTexto = document.querySelector("#notas5").value.trim();
   const error = document.querySelector("#error5");
-
+  //Sin nombre no se puede crear, asi que mostramos el error y salimos.
   if (nombre === "") {
     error.textContent = "Escribe el nombre del alumno.";
     error.classList.remove("d-none");
     return;
   }
-
+//Las notas se escriben separadas por comas
   let notas = [];
   if (notasTexto !== "") {
+    //split las separa en textos y map convierte cada uno a número.
     notas = notasTexto.split(",").map((texto) => {
       const notaTexto = texto.trim();
       return notaTexto === "" ? Number.NaN : Number(notaTexto);
     });
-
+    //some pregunta si alguna no es válida (si no es número o no entra en el parámetro entre 0 y 10).
     if (notas.some((nota) => !Number.isFinite(nota) || nota < 0 || nota > 10)) {
       error.textContent = "Las notas deben ser números entre 0 y 10, separados por comas.";
       error.classList.remove("d-none");
       return;
     }
   }
-
+  //Sin empresa es Alumno, con empresa es AlumnoFCT.
   let alumno;
   if (empresa === "") {
     alumno = new Alumno(nombre, curso);
   } else {
     alumno = new AlumnoFCT(nombre, curso, empresa);
   }
-
+  //Todas las notas son válidas, añadidas con anadirNota.
   notas.forEach((nota) => alumno.anadirNota(nota));
 
-  alumnos.push(alumno);
+  alumnos.push(alumno); //lo guardamos en la lista.
   error.textContent = "";
-  error.classList.add("d-none");
+  error.classList.add("d-none"); //ocultamos el error.
+  //vaciamos las casillas.
   document.querySelector("#nombre5").value = "";
   document.querySelector("#empresa5").value = "";
   document.querySelector("#notas5").value = "";
-  pintarAlumnos();
+  pintarAlumnos(); //repintamos las tarjetas.
   console.log("Ejercicio 5: alumno y datos creados →", alumno);
 }
 
@@ -415,9 +421,7 @@ pintarAlumnos();
 // Ejercicio 6 · Fechas y textos
 // ============================================================
 
-// TODO: diasHasta(fecha) devuelve cuántos días faltan desde hoy hasta fecha (negativo si ya pasó).
-//       Pon hoy a medianoche (hoy.setHours(0, 0, 0, 0)), resta las fechas, divide entre los milisegundos
-//       de un día y redondea con Math.round: con el cambio de hora, la resta no siempre da un número entero.
+
 function diasHasta(fecha) {
 
 }
